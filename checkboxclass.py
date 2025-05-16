@@ -1,17 +1,8 @@
 import tkinter as tk
 
 class QuestionWindow:
-    def show_selections(self):
-        selected_options = [option for option, var in self.option_vars.items() if var.get()]
-        print("Selected options:", selected_options)
-
-    def __init__(self, parent):
-        self.parent=parent
-
-        # Create the main window
-        window = tk.Tk()
-
-        # Set the title of the window
+    def __init__(self, window, word_list):
+        self.window = window
         window.title("Question Window")
         window.configure(bg="oldlace")
         window.resizable(False, False)
@@ -39,20 +30,16 @@ class QuestionWindow:
                                 fg="black", bg="oldlace")
         title.pack(pady=2)
 
-        options = ["Spelling", "Grammar", "Vocabulary"]
-        option_vars = {}
+        self.word_vars = {}
+        for word in word_list:
+            self.word_vars[word] = tk.BooleanVar()
+            cb = tk.Checkbutton(window, text=word, variable=self.word_vars[word], bg="oldlace", font=("Helvetica", 11, "bold"))
+            cb.pack(anchor="c")
 
-        for option in options:
-            var = tk.BooleanVar()
-            option_vars[option] = var
-            check_button = tk.Checkbutton(window, text=option, variable=var, 
-                                        bg="oldlace", font=("Helvetica", 11, "bold"))
-            check_button.pack(pady=2)
-
-        select_button = tk.Button(window, text="Next", bg="white", width=7, 
+        self.check_button = tk.Button(window, text="Next", bg="white", width=7, 
                                 font=("Helvetica", 13, "bold"), 
-                                fg="green", command=show_selections)
-        select_button.pack(pady=5)
+                                fg="green", command=self.print_checked_words)
+        self.check_button.pack()
 
         title1=tk.Label(window, text="\nThere will be a short quiz that will see what "+
                                     "level you are at, when\n you click next. Try "+
@@ -61,9 +48,12 @@ class QuestionWindow:
                                 fg="black", bg="oldlace")
         title1.pack(pady=1)
 
-    def run(self):
-        self.window.mainloop()
+    def print_checked_words(self):
+        checked_words = [word for word, var in self.word_vars.items() if var.get()]
+        print("Checked words:", checked_words)
 
 if __name__ == "__main__":
-    app = QuestionWindow("My Application")
-    app.run()
+    root = tk.Tk()
+    word_list = ["Grammar", "Spelling", "Vocabulary"]
+    my_gui = QuestionWindow(root, word_list)
+    root.mainloop()

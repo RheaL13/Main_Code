@@ -392,77 +392,62 @@ class SignUpWindow:
                     " next time with your exact details. Thank you :)", 
                     parent=self.signup_window)
         self.signup_window.destroy()
-        self.open_questionwindow()
+        self.window=QuestionWindow(self)
 
 
 # # All the code for the literacy area question
 class QuestionWindow:
-    def show_selections(self):
-        selected_options = [option for option, var in self.option_vars.items() if var.get()]
-        print("Selected options:", selected_options)
+    def __init__(self, window, word_list):
+        self.window = window
+        self.window=tk.Toplevel()
+        window.title("Question Window")
+        window.configure(bg="oldlace")
+        window.resizable(False, False)
 
-    def __init__(self, parent):
-        self.parent=parent
+        # Calculate center position
+        w_w=600  # Window width
+        w_h=330  # Window height
+        screen_width=window.winfo_screenwidth()
+        screen_height=window.winfo_screenheight()
 
-    # Create the main window
-    window = tk.Tk()
+        x_place=(screen_width-w_w)//2
+        y_place=(screen_height-w_h)//4
 
-    # Set the title of the window
-    window.title("Question Window")
-    window.configure(bg="oldlace")
-    window.resizable(False, False)
+        # Set window geometry
+        window.geometry(f"{w_w}x{w_h}+{x_place}+{y_place}")
 
-    # Calculate center position
-    w_w=600  # Window width
-    w_h=330  # Window height
-    screen_width=window.winfo_screenwidth()
-    screen_height=window.winfo_screenheight()
+        # Headings for the different entries
+        label=tk.Label(window, text="Question", 
+                        font=("Helvetica", 20, "bold"), 
+                        fg="black", bg="oldlace")
+        label.pack(pady=20)
 
-    x_place=(screen_width-w_w)//2
-    y_place=(screen_height-w_h)//4
+        title=tk.Label(window, text="What areas do you need help with?", 
+                                font=("Helvetica", 12, "bold"), 
+                                fg="black", bg="oldlace")
+        title.pack(pady=2)
 
-    # Set window geometry
-    window.geometry(f"{w_w}x{w_h}+{x_place}+{y_place}")
+        self.word_vars = {}
+        for word in word_list:
+            self.word_vars[word] = tk.BooleanVar()
+            cb = tk.Checkbutton(window, text=word, variable=self.word_vars[word], bg="oldlace", font=("Helvetica", 11, "bold"))
+            cb.pack(anchor="c")
 
-    # Headings for the different entries
-    label=tk.Label(window, text="Question", 
-                    font=("Helvetica", 20, "bold"), 
-                    fg="black", bg="oldlace")
-    label.pack(pady=20)
+        self.check_button = tk.Button(window, text="Next", bg="white", width=7, 
+                                font=("Helvetica", 13, "bold"), 
+                                fg="green", command=self.print_checked_words)
+        self.check_button.pack()
 
-    title=tk.Label(window, text="What areas do you need help with?", 
-                            font=("Helvetica", 12, "bold"), 
-                            fg="black", bg="oldlace")
-    title.pack(pady=2)
+        title1=tk.Label(window, text="\nThere will be a short quiz that will see what "+
+                                    "level you are at, when\n you click next. Try "+
+                                    "your best :)", 
+                                font=("Helvetica", 12, "bold"), 
+                                fg="black", bg="oldlace")
+        title1.pack(pady=1)
 
-    options = ["Spelling", "Grammar", "Vocabulary"]
-    option_vars = {}
-
-    for option in options:
-        var = tk.BooleanVar()
-        option_vars[option] = var
-        check_button = tk.Checkbutton(window, text=option, variable=var, 
-                                    bg="oldlace", font=("Helvetica", 11, "bold"))
-        check_button.pack(pady=2)
-
-    select_button = tk.Button(window, text="Next", bg="white", width=7, 
-                            font=("Helvetica", 13, "bold"), 
-                            fg="green", command=show_selections)
-    select_button.pack(pady=5)
-
-    title1=tk.Label(window, text="\nThere will be a short quiz that will see what "+
-                                "level you are at, when\n you click next. Try "+
-                                "your best :)", 
-                            font=("Helvetica", 12, "bold"), 
-                            fg="black", bg="oldlace")
-    title1.pack(pady=1)
-
-    def open_questionindow(self):
-        """Open the dashboard window when all completed."""
-        self.open_questionindow=QuestionWindow
-
-    def run(self):
-        self.window.mainloop()
+    def print_checked_words(self):
+        checked_words = [word for word, var in self.word_vars.items() if var.get()]
+        print("Checked words:", checked_words)
 
 # All the code for the login window
 class LoginWindow:
@@ -773,7 +758,12 @@ class DashboardWindow:
         """
         self.clear_main_area()
 
-# To run the entire program (from beginning)
-root=tk.Tk()
-app=MainWindow(root)
-root.mainloop()
+if __name__ == "__main__":
+    root = tk.Tk()
+    app=MainWindow(root)
+    root.mainloop()
+
+# need to add this somewhere, so that the question window can open after sign up
+# need to be able to run / open question window class after pressing next in sign up 
+word_list = ["Grammar", "Spelling", "Vocabulary"]
+my_gui = QuestionWindow(root, word_list)
