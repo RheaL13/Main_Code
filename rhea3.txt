@@ -1,4 +1,0 @@
-First Name: rhea
-Birthdate: 12/02/2010
-Username: rhea3
-Password: rhea

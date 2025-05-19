@@ -596,6 +596,11 @@ class QuestionWindow:
         # Open Dashboard
         self.parent.open_dashboard()  # This will now call the open_dashboard() method of MainWindow
 
+
+# All the code for the level quiz
+class LevelQuiz:
+    """Code for the window of the level quiz."""
+
 # All the code for the Main Home Page
 class DashboardWindow:
     """Code for the window after user had logged in."""
