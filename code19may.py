@@ -750,13 +750,6 @@ class DashboardWindow:
         """Display the learn page."""
         self.clear_main_area()
 
-    # The Home page of the Dashboard Window
-    def display_help(self):
-        """Displaying the help questions and answer of the program and 
-        picture.
-        """
-        self.clear_main_area()
-
     # The About page of the Dashboard Window
     def display_about(self):
         """Displaying the help questions and answer of the program and 
@@ -764,7 +757,14 @@ class DashboardWindow:
         """
         self.clear_main_area()
 
-    # Display the profile page
+    # The Home page of the Dashboard Window
+    def display_help(self):
+        """Displaying the help questions and answer of the program and 
+        picture.
+        """
+        self.clear_main_area()
+
+    # The profile page from the Dashboard Window
     def display_profile(self):
         """Display the profile page."""
         self.clear_main_area()

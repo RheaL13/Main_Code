@@ -33,7 +33,10 @@ class MainWindow:
         self.firstwindow.pack(fill="both", expand=True)
 
         # Title and headings of the window
-        label = tk.Label(self.firstwindow, text="Name\nLiteracy Quiz", font=("Helvetica", 28, "bold"), fg="green", bg="oldlace")
+        label = tk.Label(self.firstwindow, 
+                         text="Name\nLiteracy Quiz", 
+                         font=("Helvetica", 28, "bold"), 
+                         fg="green", bg="oldlace")
         label.pack(pady=40)
 
         description = tk.Label(self.firstwindow, text="Welcome!\nThis " + 
@@ -41,7 +44,8 @@ class MainWindow:
                                 "your knowledge on \nyour literacy skills " + 
                                 "(spelling, grammar, and vocabulary). " + 
                                 "\nIf you are new here, please sign up, " + 
-                                "otherwise login.", font=("Helvetica", 15), fg="green", bg="oldlace")
+                                "otherwise login.", font=("Helvetica", 15), 
+                                fg="green", bg="oldlace")
         description.place(x=330, y=140)
 
         # Buttons on the window
@@ -139,21 +143,30 @@ class LoginWindow:
         self.login_window.geometry(f"{w_w}x{w_h}+{x_place}+{y_place}")
 
         # Headings for entries
-        title = tk.Label(self.login_window, text="Login", font=("Helvetica", 20, "bold"), fg="black", bg="oldlace")
+        title = tk.Label(self.login_window, text="Login", 
+                         font=("Helvetica", 20, "bold"), 
+                         fg="black", bg="oldlace")
         title.pack(pady=20)
 
-        title1 = tk.Label(self.login_window, text="Username", font=("Helvetica", 13, "bold"), fg="black", bg="oldlace")
+        title1 = tk.Label(self.login_window, 
+                          text="Username", 
+                          font=("Helvetica", 13, "bold"), 
+                          fg="black", bg="oldlace")
         title1.pack(pady=2)
 
         self.username = self.create_entry("Username")
 
-        title2 = tk.Label(self.login_window, text="Password", font=("Helvetica", 13, "bold"), fg="black", bg="oldlace")
+        title2 = tk.Label(self.login_window, text="Password", 
+                          font=("Helvetica", 13, "bold"), fg="black", 
+                          bg="oldlace")
         title2.pack(pady=2)
         
         self.password = self.create_entry("Password", show="*")
 
-        next_button = tk.Button(self.login_window, text="NEXT", width=7, height=1, fg="green", bg="white", 
-                                font=("Helvetica", 15, "bold"), command=self.login)
+        next_button = tk.Button(self.login_window, text="NEXT", width=7, height=1, 
+                                fg="green", bg="white", 
+                                font=("Helvetica", 15, "bold"), 
+                                command=self.login)
         next_button.pack(pady=20)
 
         # Button to change to signup window
@@ -173,8 +186,10 @@ class LoginWindow:
         entry = tk.Entry(self.login_window, show=show, font=("Helvetica", 12))
         entry.pack(pady=10)
         entry.insert(0, placeholder)
-        entry.bind("<FocusIn>", lambda event, e=entry, p=placeholder: self.on_entry_click(event, e, p))
-        entry.bind("<FocusOut>", lambda event, e=entry, p=placeholder: self.on_focusout(event, e, p))
+        entry.bind("<FocusIn>", lambda event, e=entry, 
+                   p=placeholder: self.on_entry_click(event, e, p))
+        entry.bind("<FocusOut>", lambda event, e=entry, 
+                   p=placeholder: self.on_focusout(event, e, p))
         entry.config(fg="grey")
         return entry
 
@@ -215,7 +230,8 @@ class LoginWindow:
             self.login_window.destroy()
             self.open_dashboard()
         else:
-            mb.showwarning("Error", "Invalid credentials, please try again.", parent=self.login_window)
+            mb.showwarning("Error", "Invalid credentials, please try again.", 
+                           parent=self.login_window)
 
 
 class SignUpWindow:
@@ -237,7 +253,9 @@ class SignUpWindow:
 
         self.signup_window.geometry(f"{w_w}x{w_h}+{x_place}+{y_place}")
 
-        title = tk.Label(self.signup_window, text="Sign Up", font=("Helvetica", 20, "bold"), fg="black", bg="oldlace")
+        title = tk.Label(self.signup_window, text="Sign Up", 
+                         font=("Helvetica", 20, "bold"), fg="black", 
+                         bg="oldlace")
         title.pack(pady=20)
 
         self.first_name = self.create_entry("First Name")
@@ -260,15 +278,18 @@ class SignUpWindow:
         login_change_button.place(x=480, y=20)
 
         back_button = tk.Button(self.signup_window, text="EXIT", width=7, font=("Helvetica", 15, "bold"),
-                                height=1, fg="black", bg="white", command=self.signup_window.destroy)
+                                height=1, fg="black", bg="white", 
+                                command=self.signup_window.destroy)
         back_button.place(x=480, y=485)
 
     def create_entry(self, placeholder, show=None):
         entry = tk.Entry(self.signup_window, show=show, font=("Helvetica", 12))
         entry.pack(pady=10)
         entry.insert(0, placeholder)
-        entry.bind("<FocusIn>", lambda event, e=entry, p=placeholder: self.on_entry_click(event, e, p))
-        entry.bind("<FocusOut>", lambda event, e=entry, p=placeholder: self.on_focusout(event, e, p))
+        entry.bind("<FocusIn>", lambda event, e=entry, 
+                   p=placeholder: self.on_entry_click(event, e, p))
+        entry.bind("<FocusOut>", lambda event, e=entry, 
+                   p=placeholder: self.on_focusout(event, e, p))
         entry.config(fg="grey")
         return entry
 
@@ -324,7 +345,8 @@ class SignUpWindow:
 
         age = (datetime.today() - birthdate).days // 365
         if age < 18 or age > 30:
-            mb.showwarning("Age Notice", "This program is designed for ages 18-30.", parent=self.signup_window)
+            mb.showwarning("Age Notice", "This program is designed for ages 18-30.", 
+                           parent=self.signup_window)
             return False
 
         return True
@@ -388,7 +410,9 @@ class QuestionWindow:
             cb = tk.Checkbutton(self.window, text=word, variable=self.word_vars[word], bg="oldlace", font=("Helvetica", 11, "bold"))
             cb.pack(anchor="c")
 
-        self.check_button = tk.Button(self.window, text="Next", bg="white", width=7, font=("Helvetica", 13, "bold"), fg="green", command=self.finish)
+        self.check_button = tk.Button(self.window, text="Next", bg="white", 
+                                      width=7, font=("Helvetica", 13, "bold"), 
+                                      fg="green", command=self.finish)
         self.check_button.pack()
 
     def finish(self):
