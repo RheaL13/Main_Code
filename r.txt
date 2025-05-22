@@ -1,4 +1,0 @@
-First Name: rhea
-Birthdate: 12/10/2001
-Username: r
-Password: r
