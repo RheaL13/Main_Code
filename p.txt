@@ -1,4 +1,0 @@
-First Name: p
-Birthdate: 02/02/2001
-Username: p
-Password: p

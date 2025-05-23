@@ -1,4 +1,7 @@
 First Name: q
-Birthdate: 02/02/2001
+Birthdate: 02/02/2002
 Username: q
 Password: q
+
+Help in Literacy Area(s): 
+Areas: ['Spelling', 'Vocabulary']
