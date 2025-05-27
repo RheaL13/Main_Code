@@ -1,0 +1,17 @@
+Profile Data:
+First Name: r
+Birthdate: 02/02/2002
+Username: r
+Password: r
+
+Help in Literacy Area(s): 
+Areas: ['Grammar', 'Spelling', 'Vocabulary']
+
+Level Quiz scores: 
+Date: 28/05/2025 11:03:49
+Correct: 15
+Wrong: 0
+Score: 100%
+
+Learning Level: 
+Level: 3

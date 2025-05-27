@@ -1,8 +1,0 @@
-Profile Data:
-First Name: l
-Birthdate: 02/02/2002
-Username: l
-Password: l
-
-Help in Literacy Area(s): 
-Areas: ['Grammar', 'Spelling', 'Vocabulary']

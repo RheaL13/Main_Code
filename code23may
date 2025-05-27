@@ -31,7 +31,7 @@ from PIL import ImageTk
 
 # Data of questions and answers and options
 data = {
-    'question': [
+    "question": [
         "Which word is spelled correctly?",
         "What is the plural of 'fox'?",
         "Which sentence is correct?",
@@ -48,7 +48,7 @@ data = {
         "Which sentence is a question?",
         "Choose the correct version of 'they're'"
     ],
-    'options': [
+    "options": [
         ["a) frend", "b) fren", "✅ c) friend", "d) frand"],
         ["a) foxes", "b) foxs", "✅ c) foxes", "d) foxess"],
         ["a) She can goes fast.", "b) She going fast.", "✅ c) She goes fast.", "d) She go fast."],
@@ -65,7 +65,7 @@ data = {
         ["a) I like ice cream", "b) She has a bike", "✅ c) Do you like ice cream?", "d) We saw a dog"],
         ["a) Their going to the beach.", "b) There going to the beach.", "✅ c) They’re going to the beach.", "d) They going to the beach."]
     ],
-    'answer': [2, 2, 2, 2, 2, 1, 1, 1, 2, 1, 1, 2, 2, 2]
+    "answer": [3, 3, 3, 3, 3, 2, 2, 2, 3, 2, 2, 2, 3, 3, 3]
 }
 
 # The Main Window (the first one users will see)
@@ -307,14 +307,14 @@ class LoginWindow:
         if os.path.exists(f"{username}.txt"):
             with open(f"{username}.txt", "r") as file:
                 lines=file.readlines()
-                stored_username=lines[2].split(": ")[1].strip()
-                stored_password=lines[3].split(": ")[1].strip()
+                stored_username=lines[3].split(": ")[1].strip()
+                stored_password=lines[4].split(": ")[1].strip()
                 if username==stored_username and password==stored_password:
                     self.parent.store_pending_user_info(
-                        first_name=lines[0].split(": ")[1].strip(),
+                        first_name=lines[1].split(": ")[1].strip(),
                         username=stored_username,
                         password=stored_password,
-                        date_of_birth=lines[1].split(": ")[1].strip()
+                        date_of_birth=lines[2].split(": ")[1].strip()
                     )
                     return True
         return False
@@ -650,7 +650,6 @@ class QuestionWindow:
         levelquizwindow.attributes('-topmost', True)  # keep window on top
         LevelQuiz(levelquizwindow, self.user_info)  # Now this works correctly, passing user_info
 
-
     def finish(self):                                                                       # here!!!!!!!!!
         checked_words = [word for word, var in self.word_vars.items() if var.get()]
         
@@ -725,8 +724,7 @@ class LevelQuiz:
 
     def open_dashboard(self):
         """Open the dashboard window when all completed."""
-        self.dashboard=DashboardWindow(self.parent.master, 
-                                         self.parent.pending_user_info)
+        self.dashboard=DashboardWindow(self.root, self.root.user_info)           # fix!!!!
 
     def display_result(self):
         """Displaying the correct, wrong, and overall score of the quiz."""
@@ -735,16 +733,18 @@ class LevelQuiz:
         wrong = f"Wrong: {wrong_count}"
         score = int(self.correct / self.data_size * 100)
         result = f"Score: {score}%"
-        if correct < 6:
+        if self.correct < 6:
             level = "You have been put into Level 1"
             levelnumber = "1"
-        elif correct > 6 and correct < 12:
+        elif self.correct > 6 and self.correct < 12:
             level = "You have been put into Level 2"
             levelnumber = "2"
         else:
             level = "You haven been put into Level 3"
             levelnumber = "3"
         mb.showinfo("Result", f"{result}\n{correct}\n{wrong}\n{level}", parent=self.root)
+
+        self.root.destroy()
 
         # Open Dashboard
         self.open_dashboard()  # This will now call the open_dashboard() method of MainWindow
