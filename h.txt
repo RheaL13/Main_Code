@@ -1,0 +1,17 @@
+Profile Data:
+First Name: h
+Birthdate: 02/02/2018
+Username: h
+Password: h
+
+Help in Literacy Area(s): 
+Areas: ['Grammar', 'Spelling', 'Vocabulary']
+
+Level Quiz scores: 
+Date: 11/06/2025 21:10:21
+Correct: 5
+Wrong: 10
+Score: 33%
+
+Learning Level: 
+Level: 1

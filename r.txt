@@ -4,14 +4,20 @@ Birthdate: 02/02/2002
 Username: r
 Password: r
 
-Help in Literacy Area(s): 
+Literacy Area
 Areas: ['Grammar', 'Spelling', 'Vocabulary']
 
-Level Quiz scores: 
+Level Quiz Info 
 Date: 04/06/2025 10:45:48
 Correct: 2
 Wrong: 13
 Score: 13%
 
-Learning Level: 
+Level Info 
 Level: 1
+
+Quiz Results 
+Date: 11/06/2025 21:28:07
+Correct: 5
+Wrong: 10
+Score: 33%
