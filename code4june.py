@@ -1,3 +1,15 @@
+# need to do - if no options clicked of the "what area do you need help in" then have a pop up window telling them they need to 
+# fix the level text on line 1061 - might need to be different lines not with the og 
+
+
+
+#!!!
+# line 630
+
+#MainQuiz!!!!
+
+
+
 # Importing all the modules for the program
 """Provides functions for creating and removing a directory / folder."""
 import os
@@ -28,6 +40,8 @@ from tkinter import messagebox as mb
 from PIL import Image
 """Imports the tkinter style of image that are saved to display and modify.."""
 from PIL import ImageTk
+"""import json to use json file for data"""
+import json
 
 # Data of questions and answers and options
 data = {
@@ -504,12 +518,18 @@ class SignUpWindow:
         age=(datetime.today()-birthdate).days//365
         if age<0 or age>90:
             mb.showerror("Invalid Date Of Birth", "Invalid date of birth. "+
-                         "Remember to include the ' / '.", 
+                         "Remember to include the '/'.", 
                          parent=self.signup_window)
             return False
-        elif age<18 or age>30:
-            if age<10:
-                age_maybe=mb.askquestion("Age Notice", "Are you sure"+
+        elif age<5 or age>15:
+            if age<5:
+                age_maybe=mb.askquestion("Age Notice", "Are you sure "+
+                                         "that is the correct age?", 
+                                         parent=self.signup_window)
+                if age_maybe=="no":
+                    return False
+            elif age>90:
+                age_maybe=mb.askquestion("Age Notice", "Are you sure "+
                                          "that is the correct age?", 
                                          parent=self.signup_window)
                 if age_maybe=="no":
@@ -520,8 +540,10 @@ class SignUpWindow:
                                " able to use the program.", 
                                parent=self.signup_window)
         else:
-            mb.showwarning("Age Notice", "This program is designed for"+
-                           " ages 18-30.", parent=self.signup_window)
+            mb.showwarning("Age Notice", "This program is "+
+                               "designed for ages 5-15. However you are still"+
+                               " able to use the program.", 
+                               parent=self.signup_window)
                 
         return True
     
@@ -582,6 +604,7 @@ class QuestionWindow:
         self.window.title("Question Window")
         self.window.configure(bg="oldlace")
         self.window.resizable(False, False)
+        #self.opt_selected = IntVar()
 
         # Calculate center position
         w_w=600  # Window width
@@ -611,6 +634,10 @@ class QuestionWindow:
             self.word_vars[word] = tk.BooleanVar()
             cb = tk.Checkbutton(self.window, text=word, variable=self.word_vars[word], bg="oldlace", font=("Helvetica", 11, "bold"))
             cb.pack(anchor="c")
+
+        # if self.word_vars.get() == 0:
+        #     mb.showwarning("Warning", "Please select an option before proceeding.", parent=self.root)        #fix!!!!
+        #     return
 
         self.check_button = tk.Button(self.window, text="Next", bg="white", width=7, 
                                 font=("Helvetica", 13, "bold"), 
@@ -702,6 +729,10 @@ class LevelQuiz:
                                           "TProgressbar")
         self.progress_bar.place(x=50, y=95)
         self.update_progress_bar()
+
+    # # get the data from the json file
+    # with open('data.json') as f:
+    #     data = json.load(f)
 
     def next_btn(self):
         """Tell the user that they need to click an option (answer)."""
@@ -820,6 +851,173 @@ class LevelQuiz:
             self.progress_var.set(100)
         else:
             self.progress_var.set((self.q_no/self.data_size) * 100)
+
+    # get the data from the json file
+    with open('data.json') as f:
+        data = json.load(f)
+
+
+# All the code for the Main Quiz
+class MainQuiz:
+    """Code for the main quiz."""
+    def __init__(self, root, user_info):
+        """The basic code for the display of the quiz window."""
+        self.root=root
+        self.root.configure(bg="oldlace")
+        self.q_no=0
+        self.correct=0
+        self.user_info=user_info
+        self.display_title()
+        self.display_question()
+        self.opt_selected=IntVar()
+        self.opts=self.radio_buttons()
+        self.display_options()
+        self.buttons()
+        self.data_size=len(data['question'])
+        
+        # Progress bar
+        style=ttk.Style()
+        style.theme_use('clam')
+        style.configure("green.Horizontal.TProgressbar", 
+                        thickness=30, 
+                        troughcolor='black', 
+                        background='green')
+        self.progress_var=tk.DoubleVar()
+        self.progress_bar=ttk.Progressbar(self.root, maximum=100, length=300, 
+                                          variable=self.progress_var, 
+                                          style="green.Horizontal."+
+                                          "TProgressbar")
+        self.progress_bar.place(x=50, y=95)
+        self.update_progress_bar()
+
+    def next_btn(self):
+        """Tell the user that they need to click an option (answer)."""
+        if self.opt_selected.get() == 0:
+            mb.showwarning("Warning", "Please select an option "+
+                           "before proceeding.", parent=self.root)
+            return
+        
+        if self.check_ans(self.q_no):
+            self.correct += 1
+        
+        self.q_no += 1
+
+        if self.q_no == self.data_size:
+            self.update_progress_bar(final=True)  # Progress bar to 100%
+            self.root.after(100, self.display_result)  
+        else:
+            self.update_progress_bar()
+            self.display_question()
+            self.display_options()
+    
+    # Display the results of the quiz to the user
+    def display_result(self):
+        """Displaying the correct, wrong, and overall score of the quiz.
+        And saving it to their user profile file. 
+        """
+        wrong_count=self.data_size-self.correct
+        correct=f"Correct: {self.correct}"
+        wrong=f"Wrong: {wrong_count}"
+        score=int(self.correct/self.data_size*100)
+        result=f"Score: {score}%"
+        mb.showinfo("Result", f"{result}\n{correct}\n{wrong}", 
+                    parent=self.root)
+        
+        date=datetime.now().strftime('%d/%m/%Y %H:%M:%S')
+
+        # Save results to user's file with their info
+        username=self.user_info.get("username", "user")
+        with open(f"{username}.txt", 'a') as data: 
+            data.write("\nQuiz scores: \n")
+            data.write(f"Date: {date}\n")
+            data.write(f"Correct: {self.correct}\n")
+            data.write(f"Wrong: {wrong_count}\n")
+            data.write(f"Score: {score}%\n")
+
+        # Add the popup messagebox
+        mb.showinfo("Learn More", "To do better next time, go to the 'LEARN'"+
+                    " tab to learn more about over-consumption.", 
+                    parent=self.root)
+        self.root.destroy()
+
+    def check_ans(self, q_no):
+        """Checking the answers of the options the user clicked."""
+        return self.opt_selected.get()==data['answer'][q_no]
+
+    def buttons(self):
+        """Important buttons for the quiz."""
+        next_button=tk.Button(self.root, text="NEXT", command=self.next_btn,
+                              bg="white", fg="black", width=7, height=1, 
+                              font=("Helvetica", 16, "bold"))
+        next_button.place(x=470, y=550)
+        quit_button=tk.Button(self.root, text="EXIT", 
+                              bg="white", width=7, height=1,
+                              fg="black", command=self.check_exit,
+                              font=("Helvetica", 16, "bold"))
+        quit_button.place(x=920, y=95)
+
+    def check_exit(self):
+        """Verify if the user wants to exit, because progress will 
+        not be saved.
+        """
+        result=mb.askquestion("Exit", "Are you sure you want to exit the"+
+                              " quiz now?", parent=self.root)
+        if result=="yes":
+            self.root.destroy()
+
+    def display_options(self):
+        """Displaying the options for the different questions."""
+        val=0
+        self.opt_selected.set(0)
+        for option in data['options'][self.q_no]:
+            self.opts[val]['text']=option
+            val+=1
+    
+    # Displaying the question of the quiz (in the normal order)
+    def display_question(self):
+        """Displaying the questions for the quiz."""
+        if hasattr(self, 'q_label'):
+            self.q_label.destroy()  # Destroy previous question label
+        self.q_label=tk.Label(self.root, text=data['question'][self.q_no], 
+                                width=100, font=('Helvetica', 20, 'bold'), 
+                                anchor='w', wraplength=900, justify='left',
+                                bg="oldlace", fg="black")
+        self.q_label.place(x=50, y=150)
+
+    def display_title(self):
+        """Title of the quiz."""
+        title=tk.Label(self.root, text="OVERCONSUMPTION QUIZ",
+                         width=50, bg="green", fg="white", height=2,
+                         font=("Helvetica", 26, "bold"))
+        title.place(x=0, y=0)
+
+    def radio_buttons(self):
+        """How the option are shown and clicked my the user (radio buttons)."""
+        q_list=[]
+        y_pos=250
+        while len(q_list)<4:
+            radio_btn=tk.Radiobutton(self.root, text=" ", 
+                                     variable=self.opt_selected,
+                                     value=len(q_list)+1, 
+                                     font=("Helvetica", 18),
+                                    fg="black", 
+                                     bg="oldlace")
+            q_list.append(radio_btn)
+            radio_btn.place(x=100, y=y_pos)
+            y_pos+=60
+        return q_list
+
+    def update_progress_bar(self, final=False):
+        """Updating the progress bar when moving onto the next question."""
+        if final or self.q_no >= self.data_size:
+            self.progress_var.set(100)
+        else:
+            self.progress_var.set((self.q_no/self.data_size) * 100)
+
+    # get the data from the json file
+    with open('level1grammar.json') as f:
+        data = json.load(f)
+
 
 # All the code for the Main Home Page
 class DashboardWindow:
@@ -963,16 +1161,77 @@ class DashboardWindow:
                           font=("Helvetica", 30), fg="black", bg="oldlace")
         title2.place(x=230, y=5)
 
-    # The Home page of the Dashboard Window
+    # The Quiz page of the Dashboard Window
     def display_quiz(self):
         """Displaying the quiz page where the user can choose between the 
         normal or shuffled quiz order. 
         """
         self.clear_main_area() # Specified part cleared for the new display
 
-        title2=tk.Label(self.main_frame, text="Quiz", 
-                          font=("Helvetica", 30), fg="black", bg="oldlace")
-        title2.place(x=230, y=5)
+        # Title label
+        title_label=tk.Label(self.main_frame, text="Quiz Page", 
+                             font=("Helvetica", 30), fg="black", 
+                             bg="oldlace")
+        title_label.place(x=249, y=5)
+
+        label=tk.Label(self.main_frame, text="Welcome to the Quiz Page\nTo"+
+                       " take the quiz, press the quiz button below.\n"+
+                       "Then go onto the Learn tab to teach yourself "+
+                       "more, to do better in the quiz, next time.",
+                       font=("Helvetica", 15), fg="green", bg="oldlace")
+        label.place(x=0, y=80)
+
+        # Load and display image
+        image_path="G:\My Drive\Yr 13\Digital Science\Main_Code\images\image1.jpg"
+        image=Image.open(image_path)
+        resize_image=image.resize((750, 350))
+        img=ImageTk.PhotoImage(resize_image)
+
+        image_label=tk.Label(self.main_frame, image=img)
+        image_label.image=img  
+        image_label.place(y=200, x=0)
+
+        # Quiz button
+        quiz_button=tk.Button(self.main_frame, text='QUIZ', width=10, 
+                              height=2, font=("Helvetica", 10, "bold"), 
+                              fg="green", bg="white", 
+                              command=self.step1_open_quiz_window)
+        quiz_button.place(x=300, y=635)
+
+        # Code to open the quiz (the user chooses shuffled or normal order)
+    def step1_open_quiz_window(self):
+        """Asks the user which kind of quiz they want, random or normal and
+        will open whichever one they choose (the different classes).
+        """
+        popup_q1=tk.Toplevel()
+        popup_q1.title("QUIZ")
+        popup_q1.resizable(False, False)
+
+        # Calculate center position
+        window_w=1050  # Window width  
+        window_h=650   # Window height
+        screen_width=popup_q1.winfo_screenwidth()
+        screen_height=popup_q1.winfo_screenheight()
+
+        x_position=(screen_width-window_w)//2
+        y_position=(screen_height-window_h)//4
+
+        # Set window geometry
+        popup_q1.geometry(f"{window_w}x{window_h}+{x_position}+{y_position}")
+
+        result=mb.askquestion("Option", "Do you want a randomised "+
+                              "order of the questions, or the "+
+                              "original order?\n(Yes for "+
+                              "randomised, No for original)", 
+                              parent=self.dashboard_window)
+
+        # Opens based on user repsonse from the question messagebox 
+        if result=='yes':
+            popup_q1.attributes('-topmost', True)  # keep window on top
+            MainQuiz(popup_q1, self.user_info)
+        else:
+            popup_q1.attributes('-topmost', True)  # keep window on top
+            MainQuiz(popup_q1, self.user_info)
 
     # Display the learn page
     def display_learn(self):
@@ -1006,7 +1265,7 @@ class DashboardWindow:
         title2.place(x=230, y=5)
 
     # The profile page from the Dashboard Window
-    def display_profile(self):
+    def display_profile(self):                                                       # fix the level text on line 1061 - might need to be different lines not with the og 
         """Display the profile page."""
         self.clear_main_area()
 
@@ -1029,10 +1288,10 @@ class DashboardWindow:
             info_label.place(x=155, y=10)
 
             labels=["First Name:", "Username:", 
-                      "Date of Birth:", "Password:"]
+                      "Date of Birth:", "Password:"]#, "Level:"]
             values=[self.user_info['first_name'], self.user_info['username'], 
                     self.user_info['date_of_birth'], 
-                    self.user_info['password']]
+                    self.user_info['password']]#, self.user_info['level']]
 
             for i, (label_text, value_text) in enumerate(zip(labels, values)):
                 label=tk.Label(profile_frame, text=label_text, 
@@ -1048,6 +1307,49 @@ class DashboardWindow:
                            " available", font=("Helvetica", 16), fg="black", 
                            bg="oldlace")
             label.place(x=250, y=60)  
+
+        # Label saying 'quiz results:'
+        quiz_label=tk.Label(self.main_frame, text="Select an option:", 
+                            font=("Helvetica", 18, "bold"), fg="black", 
+                            bg="oldlace")
+        quiz_label.place(x=275, y=280)
+
+        # Create a Text widget to display file contents
+        text_widget=tk.Text(self.main_frame, wrap="word", 
+                            font=("Helvetica", 13, "bold"), bg="oldlace", 
+                            bd=0, fg="black", width=60, height=17)
+        text_widget.place(x=140, y=320, width=485, height=280)
+
+        # Add the code to show the file content below the profile information
+        file_path=f"{self.user_info['username']}.txt"
+        if os.path.exists(file_path):
+            with open(file_path, 'r') as file:
+                lines=file.readlines()
+                if len(lines)>5:
+                    content=''.join(lines[5:])  # Skip the first 5 lines
+                    text_widget.insert(tk.END, content)
+                    text_widget.tag_configure('bold', 
+                                              font=("Helvetica", 13, "bold"))
+
+                    # Apply the bold tag to "Select an option:"
+                    start_idx=1.0
+                    while True:
+                        start_idx=text_widget.search("Select an option:", 
+                                                       start_idx, tk.END)
+                        if not start_idx:
+                            break
+                        end_idx=f"{start_idx}+{len('Select an option:')}c"
+                        text_widget.tag_add('bold', start_idx, end_idx)
+                        start_idx=end_idx
+                else:
+                    text_widget.insert(tk.END, "There is no data found.")
+        else:
+            no_file_label=tk.Label(self.main_frame, text="File not found", 
+                                   font=("Helvetica", 16), fg="black", 
+                                   bg="oldlace")
+            no_file_label.place(x=250, y=250)  
+
+        text_widget.config(state=tk.DISABLED)
 
 
 if __name__ == "__main__":

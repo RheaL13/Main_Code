@@ -1,3 +1,15 @@
+# need to do - if no options clicked of the "what area do you need help in" then have a pop up window telling them they need to 
+
+
+
+
+#!!!
+# line 630
+
+
+
+
+
 # Importing all the modules for the program
 """Provides functions for creating and removing a directory / folder."""
 import os
@@ -28,6 +40,8 @@ from tkinter import messagebox as mb
 from PIL import Image
 """Imports the tkinter style of image that are saved to display and modify.."""
 from PIL import ImageTk
+"""import json to use json file for data"""
+import json
 
 # Data of questions and answers and options
 data = {
@@ -612,6 +626,10 @@ class QuestionWindow:
             cb = tk.Checkbutton(self.window, text=word, variable=self.word_vars[word], bg="oldlace", font=("Helvetica", 11, "bold"))
             cb.pack(anchor="c")
 
+        # if self.word_vars.get() == 0:
+        #     mb.showwarning("Warning", "Please select an option before proceeding.", parent=self.root)        #fix!!!!
+        #     return
+
         self.check_button = tk.Button(self.window, text="Next", bg="white", width=7, 
                                 font=("Helvetica", 13, "bold"), 
                                 fg="green", command=self.finish)
@@ -702,6 +720,10 @@ class LevelQuiz:
                                           "TProgressbar")
         self.progress_bar.place(x=50, y=95)
         self.update_progress_bar()
+
+    # # get the data from the json file
+    # with open('data.json') as f:
+    #     data = json.load(f)
 
     def next_btn(self):
         """Tell the user that they need to click an option (answer)."""
@@ -820,6 +842,10 @@ class LevelQuiz:
             self.progress_var.set(100)
         else:
             self.progress_var.set((self.q_no/self.data_size) * 100)
+
+    # get the data from the json file
+    with open('data.json') as f:
+        data = json.load(f)
 
 # All the code for the Main Home Page
 class DashboardWindow:
