@@ -5,7 +5,7 @@ Username: r
 Password: r
 
 Literacy Area
-Areas: ['Grammar', 'Spelling', 'Vocabulary']
+['Grammar', 'Spelling', 'Vocabulary']
 
 Level Quiz Info 
 Date: 04/06/2025 10:45:48
@@ -22,7 +22,7 @@ Correct: 5
 Wrong: 10
 Score: 33%
 
-Quiz result: 
+Quiz Results
 Date: 16/06/2025 09:14:24
 Correct: 3
 Wrong: 12
