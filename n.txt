@@ -1,8 +1,0 @@
-Profile Data:
-First Name: n
-Birthdate: 02/02/2002
-Username: n
-Password: n
-
-Help in Literacy Area(s): 
-Areas: []

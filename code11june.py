@@ -1332,8 +1332,8 @@ class DashboardWindow:
             if "Literacy Area" in self.data_selection.get():
                 print("Literacy Area selected.")  # Debugging: Confirm this section is selected
                 try:
-                    start_index = lines.index("Help in Literacy Area(s):\n") + 2
-                    end_index = lines.index("Level Quiz scores:", start_index)
+                    start_index = lines.index("Literacy Area\n") + 2
+                    end_index = lines.index("Level Quiz Info", start_index)
                     content_to_display = ''.join(lines[start_index:end_index]).strip()
                 except ValueError:
                     content_to_display = "Could not find 'Help in Literacy Area(s):' in file."
