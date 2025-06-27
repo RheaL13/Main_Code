@@ -1,0 +1,17 @@
+Profile Data:
+First Name: Alliya
+Birthdate: 17/01/2008
+Username: Buchanan
+Password: blue
+
+Literacy Area: 
+['Grammar']
+
+Level Quiz scores: 
+Date: 27/06/2025 11:32:14
+Correct: 11
+Wrong: 4
+Score: 73%
+
+Learning Level: 
+Level: 2

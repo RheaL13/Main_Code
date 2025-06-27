@@ -1351,8 +1351,12 @@ class DashboardWindow:
                 content_to_display = lines[15] + lines[16].strip()
 
             elif "Quiz Results" in self.data_selection.get():
-                # Show lines 19 onward (index 18 and onward)
-                content_to_display = ''.join(lines[18:]).strip()
+                if "Quiz Results" == False:
+                    content_to_display = "You have no quiz results to show at the moment."
+                else:
+                    # Show lines 19 onward (index 18 and onward)
+                    content_to_display = ''.join(lines[18:]).strip()
+
 
             # Enable the Text widget for insertion
             self.text_widget.config(state=tk.NORMAL)

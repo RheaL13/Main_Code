@@ -1,0 +1,17 @@
+Profile Data:
+First Name: q
+Birthdate: 17/01/2008
+Username: q2
+Password: q
+
+Literacy Area: 
+['Spelling']
+
+Level Quiz scores: 
+Date: 27/06/2025 11:44:37
+Correct: 10
+Wrong: 5
+Score: 66%
+
+Learning Level: 
+Level: 2
