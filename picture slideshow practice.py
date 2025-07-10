@@ -5,7 +5,7 @@ import os
 root = tk.Tk()
 root.title("Image Slideshow")
 
-image_folder = "G:\My Drive\Yr 13\Digital Science\Main_Code\images"  # Replace with your image folder
+image_folder = "/Users/rheaschool/Library/CloudStorage/GoogleDrive-lalr@stu.otc.school.nz/My Drive/Yr 13/Digital Science/Main_Code/images"#G:\My Drive\Yr 13\Digital Science\Main_Code\images"  # Replace with your image folder
 image_paths = [os.path.join(image_folder, filename) for filename in os.listdir(image_folder) if filename.lower().endswith(('.png', '.jpg', '.jpeg', '.gif', '.bmp'))]
 
 images = []
