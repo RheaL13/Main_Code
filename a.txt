@@ -1,5 +1,0 @@
-Profile Data:
-First Name: a
-Birthdate: 11/11/2024
-Username: a
-Password: a

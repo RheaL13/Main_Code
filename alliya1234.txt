@@ -1,5 +1,0 @@
-Profile Data:
-First Name: aa
-Birthdate: 17/01/2000
-Username: alliya1234
-Password: blue

@@ -42,7 +42,7 @@ class MainWindow:
     def __init__(self, master):
         """Basic code for the display of the window."""
         self.master=master
-        self.master.title("Name")
+        self.master.title("Page By Page")
         self.master.configure(bg="oldlace")
         self.master.resizable(False, False)
 
@@ -63,7 +63,7 @@ class MainWindow:
 
         # Title and headings of the window
         label=tk.Label(self.firstwindow, 
-                       text="Name\nLiteracy Quiz", 
+                       text="Page By Page\nLiteracy Quiz", 
                        font=("Helvetica", 28, "bold"), 
                        fg="green", bg="oldlace")
         label.pack(pady=40)
@@ -427,80 +427,65 @@ class SignUpWindow:
     # Validating all the entry fields (data collected from user)
     def validate_fields(self):
         """Validating all the users details they input."""
-        first_name=self.first_name.get().strip()
-        username=self.username.get().strip()
-        password=self.password.get().strip()
-        confirm_password=self.confirm_password.get().strip()
-        date_of_birth=self.date_of_birth.get().strip()
+        first_name = self.first_name.get().strip()
+        username = self.username.get().strip()
+        password = self.password.get().strip()
+        confirm_password = self.confirm_password.get().strip()
+        date_of_birth = self.date_of_birth.get().strip()
 
-        if (first_name=="First Name" or username=="Username" or 
-            password=="Password" or confirm_password=="Confirm Password" or 
-            date_of_birth=="Date of Birth (DD/MM/YYYY)"):
-            mb.showwarning("Incomplete Fields", "Please fill out all "+
-                           "the fields.", parent=self.signup_window)
-            return False
-        
-        if len(first_name)>10 or len(username)>10 or len(password)>10:
-            mb.showwarning("Invalid Input", "First name, username, and"+
-                           " password must be 10 characters or less.", 
-                           parent=self.signup_window)
+        # Check for placeholders (unfilled inputs)
+        if (first_name == "First Name" or username == "Username" or 
+            password == "Password" or confirm_password == "Confirm Password" or 
+            date_of_birth == "Date of Birth (DD/MM/YYYY)" or
+            not first_name or not username or not password or not confirm_password or not date_of_birth):
+            mb.showwarning("Incomplete Fields", "Please fill out all the fields.",
+                        parent=self.signup_window)
             return False
 
+        # Length limits
+        if len(first_name) > 10 or len(username) > 10 or len(password) > 10:
+            mb.showwarning("Invalid Input", "First name, username, and password must be 10 characters or less.", 
+                        parent=self.signup_window)
+            return False
+
+        # Only letters in first name
         if not first_name.isalpha():
-            mb.showwarning("Invalid First Name", "First name can only "+
-                           "contain letters.", 
-                           parent=self.signup_window)
+            mb.showwarning("Invalid First Name", "First name can only contain letters.",
+                        parent=self.signup_window)
             return False
 
+        # Username: letters and numbers only
         if not re.match("^[A-Za-z0-9]+$", username):
-            mb.showwarning("Invalid Username", "Username can only "+
-                           "contain letters and numbers without "+
-                           "spaces.", parent=self.signup_window)
+            mb.showwarning("Invalid Username", "Username can only contain letters and numbers (no spaces).",
+                        parent=self.signup_window)
             return False
 
-        if password!=confirm_password:
-            mb.showerror("Error", "Passwords do not match.", 
-                         parent=self.signup_window)
+        # Passwords match
+        if password != confirm_password:
+            mb.showerror("Error", "Passwords do not match.", parent=self.signup_window)
             return False
 
-        birthdate=self.validate_date_of_birth(date_of_birth)
+        # Validate date format and calculate age
+        birthdate = self.validate_date_of_birth(date_of_birth)
         if not birthdate:
-            mb.showerror("Invalid Date Of Birth", "Please enter a valid "+
-                         "date of birth. Remember to include the ' / '.", 
-                         parent=self.signup_window)
+            mb.showerror("Invalid Date Of Birth", "Please enter a valid date of birth using format DD/MM/YYYY.",
+                        parent=self.signup_window)
             return False
 
-        age=(datetime.today()-birthdate).days//365
-        if age<0 or age>90:
-            mb.showerror("Invalid Date Of Birth", "Invalid date of birth. "+
-                         "Remember to include the '/'.", 
-                         parent=self.signup_window)
+        age = (datetime.today() - birthdate).days // 365
+        if age < 0 or age > 90:
+            mb.showerror("Invalid Date Of Birth", "Please enter a realistic date of birth (age must be between 0–90).",
+                        parent=self.signup_window)
             return False
-        elif age<5 or age>15:
-            if age<5:
-                age_maybe=mb.askquestion("Age Notice", "Are you sure "+
-                                         "that is the correct age?", 
-                                         parent=self.signup_window)
-                if age_maybe=="no":
-                    return False
-            elif age>90:
-                age_maybe=mb.askquestion("Age Notice", "Are you sure "+
-                                         "that is the correct age?", 
-                                         parent=self.signup_window)
-                if age_maybe=="no":
-                    return False
-            else:
-                mb.showwarning("Age Notice", "This program is "+
-                               "designed for ages 5-15. However you are still"+
-                               " able to use the program.", 
-                               parent=self.signup_window)
-        else:
-            mb.showwarning("Age Notice", "This program is "+
-                               "designed for ages 5-15. However you are still"+
-                               " able to use the program.", 
-                               parent=self.signup_window)
-                
-        print(age)                                                                  #fix
+
+        # Age warning if outside 5–15 range
+        if age < 5 or age > 15:
+            age_maybe = mb.askquestion("Age Notice", f"Your age is {age}. This program is designed for ages 5–15. Continue anyway?",
+                                    parent=self.signup_window)
+            if age_maybe.lower() != "yes":
+                return False
+
+        print(age)  # Optional debug
         return True
     
     def open_dashboard(self):
@@ -1038,7 +1023,7 @@ class DashboardWindow:
         # Set window geometry
         self.dashboard_window.geometry(f"{w_w}x{w_h}+{x_place}+{y_place}")
 
-        title=tk.Label(self.dashboard_window, text="Name", 
+        title=tk.Label(self.dashboard_window, text="Page By Page", 
                        font=("Helvetica", 20, "bold"), fg="green", 
                        bg="oldlace")
         title.pack(pady=20)
@@ -1156,6 +1141,17 @@ class DashboardWindow:
                           font=("Helvetica", 30), fg="black", bg="oldlace")
         title2.place(x=230, y=5)
 
+        # Load and display image - of the user manual
+        manual_image_path="manual.png"
+        manual_image=Image.open(manual_image_path)
+        resize_image=manual_image.resize((670, 600))
+        self.manual_img=ImageTk.PhotoImage(resize_image)
+
+        manual_image_label=tk.Label(self.main_frame, image=self.manual_img, 
+                                      borderwidth=0, highlightthickness=0)
+        manual_image_label.image=self.manual_img  
+        manual_image_label.place(y=80, x=50)
+
     # The Quiz page of the Dashboard Window
     def display_quiz(self):
         """Displaying the quiz page where the user can choose between the
@@ -1235,14 +1231,62 @@ class DashboardWindow:
 
     # The About page of the Dashboard Window
     def display_about(self):
-        """Displaying the help questions and answer of the program and 
-        picture.
-        """
+        """Displaying the about info of the entire program and picture."""
         self.clear_main_area()
 
         title2=tk.Label(self.main_frame, text="About", 
                           font=("Helvetica", 30), fg="black", bg="oldlace")
         title2.place(x=230, y=5)
+
+        # Create a Text widget to display file contents
+        self.configfile=Text(self.main_frame, wrap="word", bd=0, 
+                             bg="oldlace", font=("Helvetica", 13))
+        self.configfile.config(state='normal') 
+        self.configfile.place(x=0, y=100, width=775, height=250)
+
+        # Add a scrollbar to the canvas
+        scrollbar=ttk.Scrollbar(self.main_frame, orient=tk.VERTICAL, 
+                                command=self.configfile.yview)
+        scrollbar.place(x=762, y=100, height=250)
+        self.configfile.configure(yscrollcommand=scrollbar.set)
+
+        # Define tags for the font color and bold text
+        self.configfile.tag_configure("custom_color", foreground="black")
+        self.configfile.tag_configure("bold", font=("Helvetica", 13, "bold"))
+
+        # Open and read the file
+        filename="aboutpagetext"
+        try:
+            with open(filename, 'r') as f:
+                content=f.read()
+                self.configfile.insert(INSERT, content)
+                
+                # Example of making specific text bold
+                self.configfile.tag_add("bold", "1.0", "1.end")
+                self.configfile.tag_add("bold", "5.0", "5.end")
+                self.configfile.tag_add("bold", "6.0", "6.end")
+                self.configfile.tag_add("bold", "9.0", "9.end")
+                self.configfile.tag_add("bold", "12.0", "12.end")
+                self.configfile.tag_add("bold", "15.0", "15.end")
+                self.configfile.tag_add("bold", "19.0", "20.end")
+                
+                # Apply custom color to the entire content
+                self.configfile.tag_add("custom_color", "1.0", "end")
+        except FileNotFoundError:
+            self.configfile.insert(INSERT, f"Error: File '{filename}' "+
+                                   "not found.")
+        
+        self.configfile.config(state='disabled')  # Text widget read-only
+
+        # Load and display image
+        image_path="aboutus.png"
+        image=Image.open(image_path)
+        resize_image=image.resize((700, 300))
+        img=ImageTk.PhotoImage(resize_image)
+
+        image_label=tk.Label(self.main_frame, image=img)
+        image_label.image=img  
+        image_label.place(x=30, y=370)
 
     # The Home page of the Dashboard Window
     def display_help(self):
@@ -1254,6 +1298,71 @@ class DashboardWindow:
         title2=tk.Label(self.main_frame, text="Help", 
                           font=("Helvetica", 30), fg="black", bg="oldlace")
         title2.place(x=230, y=5)
+
+        # Create a Text widget to display file contents
+        self.configfile=Text(self.main_frame, wrap="word", bd=0, 
+                             bg="oldlace", font=("Helvetica", 13))
+        self.configfile.config(state='normal')  
+        self.configfile.place(x=0, y=100, width=775, height=250)
+
+        # Add a scrollbar to the canvas
+        scrollbar=ttk.Scrollbar(self.main_frame, orient=tk.VERTICAL, 
+                                command=self.configfile.yview)
+        scrollbar.place(x=762, y=100, height=250)
+        self.configfile.configure(yscrollcommand=scrollbar.set)
+
+        # Define tags for the font color and bold text
+        self.configfile.tag_configure("custom_color", foreground="black")
+        self.configfile.tag_configure("bold", font=("Helvetica", 13, "bold"))
+
+        # Open and read the file
+        filename="helppagetext"
+        try:
+            with open(filename, 'r') as f:
+                content=f.read()
+                self.configfile.insert(INSERT, content)
+                
+                # Making specific text bold
+                self.configfile.tag_add("bold", "1.0", "1.end")
+                self.configfile.tag_add("bold", "2.0", "2.9")
+                self.configfile.tag_add("bold", "3.0", "3.7")
+                self.configfile.tag_add("bold", "5.0", "5.9")
+                self.configfile.tag_add("bold", "6.0", "6.7")
+                self.configfile.tag_add("bold", "8.0", "8.9")
+                self.configfile.tag_add("bold", "9.0", "9.7")
+                self.configfile.tag_add("bold", "11.0", "11.9")
+                self.configfile.tag_add("bold", "12.0", "12.7")
+                self.configfile.tag_add("bold", "14.0", "14.end")
+                self.configfile.tag_add("bold", "15.0", "15.9")
+                self.configfile.tag_add("bold", "16.0", "16.7")
+                self.configfile.tag_add("bold", "18.0", "18.9")
+                self.configfile.tag_add("bold", "19.0", "19.7")
+                self.configfile.tag_add("bold", "21.0", "21.9")
+                self.configfile.tag_add("bold", "22.0", "22.7")
+                self.configfile.tag_add("bold", "24.0", "24.9")
+                self.configfile.tag_add("bold", "25.0", "25.7")
+                self.configfile.tag_add("bold", "27.0", "27.9")
+                self.configfile.tag_add("bold", "28.0", "28.7")
+                self.configfile.tag_add("bold", "30.0", "30.9")
+                self.configfile.tag_add("bold", "31.0", "31.7")
+
+                # Apply custom color to the entire content
+                self.configfile.tag_add("custom_color", "1.0", "end")
+        except FileNotFoundError:
+            self.configfile.insert(INSERT, f"Error: File '{filename}' "+
+                                   "not found.")
+        
+        self.configfile.config(state='disabled')  # text widget read-only
+
+        # Load and display image
+        image_path="helppagepic.jpg"
+        image=Image.open(image_path)
+        resize_image=image.resize((700, 300))
+        img=ImageTk.PhotoImage(resize_image)
+
+        image_label=tk.Label(self.main_frame, image=img)
+        image_label.image=img 
+        image_label.place(x=30, y=370)
 
     def display_profile(self):
         """Display the profile page with a dropdown for data selection."""
