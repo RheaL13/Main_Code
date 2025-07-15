@@ -35,6 +35,9 @@ import json
 
 import tkinter.simpledialog as sd
 
+from tkinter import messagebox
+from PIL import Image, ImageTk
+
 
 
 # The Main Window (the first one users will see)
@@ -958,6 +961,7 @@ class QuizSelect:
         self.dialog.title("Select Quiz Area")
         self.dialog.configure(bg="oldlace")
         self.dialog.resizable(False, False)
+        #level_number = "1"
 
         # Calculate center position
         w_w = 400
@@ -969,8 +973,13 @@ class QuizSelect:
         self.dialog.geometry(f"{w_w}x{w_h}+{x_place}+{y_place}")
 
         # Title Label
-        title = tk.Label(self.dialog, text="Select the Quiz Area", font=("Helvetica", 16, "bold"), fg="black", bg="oldlace")
+        title = tk.Label(self.dialog, text="Select the Quiz Area",
+                         font=("Helvetica", 16, "bold"), fg="black", bg="oldlace")
         title.pack(pady=30)
+        # # Heading Label
+        # heading = tk.Label(self.dialog, text=f"These quizzes are for level {level_number}",
+        #                  font=("Helvetica", 15, "bold"), fg="black", bg="oldlace")
+        # heading.pack(pady=30)
 
         # Buttons for each quiz type
         grammar_button = tk.Button(self.dialog, text="Grammar", width=15, height=2, command=self.select_grammar)
@@ -983,7 +992,10 @@ class QuizSelect:
         vocab_button.pack(pady=10)
 
         self.selected_quiz = None
+        
+        # return level_number
 
+    # if level_number = "1":
     def select_grammar(self):
         self.selected_quiz = 'level1grammar.json'
         self.dialog.destroy()
@@ -995,7 +1007,31 @@ class QuizSelect:
     def select_vocab(self):
         self.selected_quiz = 'level1vocab.json'
         self.dialog.destroy()
+    # elif level_number = "2":
+    #     def select_grammar(self):
+    #         self.selected_quiz = 'level2grammar.json'
+    #         self.dialog.destroy()
 
+    #     def select_spelling(self):
+    #         self.selected_quiz = 'level2spelling.json'
+    #         self.dialog.destroy()
+
+    #     def select_vocab(self):
+    #         self.selected_quiz = 'level2vocab.json'
+    #         self.dialog.destroy()
+    # elif level_number = "3":
+    #     def select_grammar(self):
+    #         self.selected_quiz = 'level3grammar.json'
+    #         self.dialog.destroy()
+
+    #     def select_spelling(self):
+    #         self.selected_quiz = 'level3spelling.json'
+    #         self.dialog.destroy()
+
+    #     def select_vocab(self):
+    #         self.selected_quiz = 'level3vocab.json'
+    #         self.dialog.destroy()
+    # else:
     def get_selected_quiz(self):
         return self.selected_quiz
 
@@ -1230,6 +1266,18 @@ class DashboardWindow:
                           font=("Helvetica", 30), fg="black", bg="oldlace")
         title2.place(x=230, y=5)
 
+        # image slideshow and choosing which level they want to learn at (dropdown box) !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+        # Load and display image
+        image_path="learnpage.jpg"
+        image=Image.open(image_path)
+        resize_image=image.resize((700, 350))
+        img=ImageTk.PhotoImage(resize_image)
+
+        image_label=tk.Label(self.main_frame, image=img)
+        image_label.image=img  
+        image_label.place(x=30, y=320)
+
     # The About page of the Dashboard Window
     def display_about(self):
         """Displaying the about info of the entire program and picture."""
@@ -1426,6 +1474,12 @@ class DashboardWindow:
                                    font=("Helvetica", 13, "bold"), bg="oldlace", 
                                    bd=0, fg="black", width=60, height=17)
         self.text_widget.place(x=140, y=320, width=485, height=280)
+
+        # Add a scrollbar to the canvas
+        scrollbar=ttk.Scrollbar(self.main_frame, orient=tk.VERTICAL, 
+                                command=self.text_widget.yview)
+        scrollbar.place(x=607, y=322, height=278)
+        self.text_widget.configure(yscrollcommand=scrollbar.set)
 
     def show_selected_data(self):
         # Open the user's profile file

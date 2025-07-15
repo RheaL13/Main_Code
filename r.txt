@@ -27,3 +27,27 @@ Date: 16/06/2025 09:14:24
 Correct: 3
 Wrong: 12
 Score: 20%
+
+Quiz Results 
+Date: 11/06/2025 21:28:07
+Correct: 5
+Wrong: 10
+Score: 33%
+
+Quiz Results
+Date: 16/06/2025 09:14:24
+Correct: 3
+Wrong: 12
+Score: 20%
+
+Quiz Results 
+Date: 11/06/2025 21:28:07
+Correct: 5
+Wrong: 10
+Score: 33%
+
+Quiz Results
+Date: 16/06/2025 09:14:24
+Correct: 3
+Wrong: 12
+Score: 20%
