@@ -1,5 +1,3 @@
-# fix the profile stuff
-
 # Importing all the modules for the program
 """Provides functions for creating and removing a directory / folder."""
 import os
@@ -34,6 +32,10 @@ from PIL import ImageTk
 import json
 
 import tkinter.simpledialog as sd
+
+import tkinter as tk
+from tkinter import filedialog
+
 
 
 # The Main Window (the first one users will see)
@@ -1319,8 +1321,7 @@ class DashboardWindow:
         filename="helppagetext"
         try:
             with open(filename, 'r') as f:
-                content=f.read()
-                self.configfile.insert(INSERT, content)
+                self.configfile.insert(INSERT, f.read())
                 
                 # Making specific text bold
                 self.configfile.tag_add("bold", "1.0", "1.end")
