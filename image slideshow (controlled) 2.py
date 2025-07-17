@@ -51,7 +51,7 @@ class Slideshow:
         if not self.image_paths:
             messagebox.showinfo("No Images", f"No images found in Level {level}.")
             self.canvas.delete("all")
-            self.level_label.config(text=f"Level {level} – No content available")
+            self.level_label.config(text=f"Level {level} - No content available")
             return
 
         self.current_index = 0

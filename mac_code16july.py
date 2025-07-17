@@ -1,4 +1,5 @@
 # fix help page
+# fix the learn page and the class Slideshow. As well as the code at the end 
 
 # Importing all the modules for the program
 """Provides functions for creating and removing a directory / folder."""
@@ -1034,6 +1035,83 @@ class QuizSelect:
     # else:
     def get_selected_quiz(self):
         return self.selected_quiz
+    
+# image slideshow (controlled) 2 code
+class Slideshow():
+    def __init__(self, root, base_dir):
+        self.root = root
+        self.root.title("Page By Page - Learn Space")
+        self.base_dir = base_dir
+        self.level_var = tk.StringVar(value="1")
+
+        # Level Selection Dropdown
+        level_frame = tk.Frame(root)
+        level_frame.pack(pady=10)
+        tk.Label(level_frame, text="Select Level:").pack(side=tk.LEFT)
+        level_menu = tk.OptionMenu(level_frame, self.level_var, "1", "2", "3", command=self.change_level)
+        level_menu.pack(side=tk.LEFT)
+
+        # Current level display label
+        self.level_label = tk.Label(root, text="", font=("Helvetica", 16))
+        self.level_label.pack(pady=5)
+
+        # Image Display Canvas
+        self.canvas = tk.Canvas(root, width=800, height=600)
+        self.canvas.pack()
+
+        # Navigation Buttons
+        nav_frame = tk.Frame(root)
+        nav_frame.pack(pady=10)
+        self.prev_button = tk.Button(nav_frame, text="Previous", command=self.prev_image)
+        self.prev_button.pack(side=tk.LEFT, padx=20)
+        self.next_button = tk.Button(nav_frame, text="Next", command=self.next_image)
+        self.next_button.pack(side=tk.RIGHT, padx=20)
+
+        # Load default level
+        self.image_paths = []
+        self.current_index = 0
+        self.change_level("1")
+
+    def change_level(self, level):
+        level_folder = os.path.join(self.base_dir, f"Level_{level}")
+        if not os.path.exists(level_folder):
+            messagebox.showerror("Error", f"Folder not found: {level_folder}")
+            return
+        self.image_paths = [
+            os.path.join(level_folder, f)
+            for f in os.listdir(level_folder)
+            if f.lower().endswith(('.png', '.jpg', '.jpeg', '.gif'))
+        ]
+        if not self.image_paths:
+            messagebox.showinfo("No Images", f"No images found in Level {level}.")
+            self.canvas.delete("all")
+            self.level_label.config(text=f"Level {level} – No content available")
+            return
+
+        self.current_index = 0
+        self.level_label.config(text=f"Now Learning: Level {level}")
+        self.display_image()
+
+    def display_image(self):
+        image_path = self.image_paths[self.current_index]
+        image = Image.open(image_path)
+        image = image.resize((800, 600))
+        self.photo = ImageTk.PhotoImage(image)
+        self.canvas.delete("all")  # Clear previous image
+        self.canvas.create_image(0, 0, anchor=tk.NW, image=self.photo)
+
+    def next_image(self):
+        if not self.image_paths:
+            return
+        self.current_index = (self.current_index + 1) % len(self.image_paths)
+        self.display_image()
+
+    def prev_image(self):
+        if not self.image_paths:
+            return
+        self.current_index = (self.current_index - 1) % len(self.image_paths)
+        self.display_image()
+
 
 
 # All the code for the Main Home Page
@@ -1266,8 +1344,6 @@ class DashboardWindow:
                           font=("Helvetica", 30), fg="black", bg="oldlace")
         title2.place(x=230, y=5)
 
-        # image slideshow and choosing which level they want to learn at (dropdown box) !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
         # Load and display image
         image_path="learnpage.jpg"
         image=Image.open(image_path)
@@ -1277,6 +1353,16 @@ class DashboardWindow:
         image_label=tk.Label(self.main_frame, image=img)
         image_label.image=img  
         image_label.place(x=30, y=320)
+
+        text_for_button = tk.Label(self.main_frame, 
+                                   text = "Click the button to learn in your chosen level and literacy area",
+                                   font = ("Helvetica", 15), fg = "black", bg = "oldlace")
+        text_for_button.place(x=200, y=100)
+
+        slideshow_button = tk.Button(self.main_frame, text = "Click here",
+                                     command = Slideshow)
+        slideshow_button.place(x=290, y=150)
+
 
     # The About page of the Dashboard Window
     def display_about(self):
@@ -1549,6 +1635,11 @@ class DashboardWindow:
 
 
 if __name__ == "__main__":
+
     root = tk.Tk()
     app=MainWindow(root)
     root.mainloop()
+    root1 = tk.Tk()
+    image_base_dir = "/Users/rheaschool/Library/CloudStorage/GoogleDrive-lalr@stu.otc.school.nz/My Drive/Yr 13/Digital Science/Main_Code/images"
+    app1 = Slideshow(root1, image_base_dir)
+    root1.mainloop()
