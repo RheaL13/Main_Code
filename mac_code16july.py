@@ -70,7 +70,7 @@ class MainWindow:
         label=tk.Label(self.firstwindow, 
                        text="Page By Page\nLiteracy Quiz", 
                        font=("Helvetica", 28, "bold"), 
-                       fg="green", bg="oldlace")
+                       fg="lightseagreen", bg="oldlace")
         label.pack(pady=40)
 
         description=tk.Label(self.firstwindow, text="Welcome!\nThis "+
@@ -79,17 +79,17 @@ class MainWindow:
                              "(spelling, grammar, and vocabulary). "+
                              "\nIf you are new here, please sign up, "+
                              "otherwise login.",font=("Helvetica", 15), 
-                             fg="green", bg="oldlace")
+                             fg="lightseagreen", bg="oldlace")
         description.place(x=330, y=140)
 
         # Buttons on the window, that do different things
         signup_button=tk.Button(self.firstwindow, text="SIGN UP", width=10, 
-                                height=2, fg="green", bg="white",
+                                height=2, fg="lightseagreen", bg="white",
                                 font=("Helvetica", 10, "bold"),
                                 command=self.signup)
 
         login_button=tk.Button(self.firstwindow, text="LOGIN", width=10, 
-                               height=2, fg="green", bg="white",
+                               height=2, fg="lightseagreen", bg="white",
                                font=("Helvetica", 10, "bold"),
                                command=self.login)
 
@@ -133,7 +133,7 @@ class MainWindow:
 
         for i, (text, command) in enumerate(buttons):
             btn=tk.Button(self.master, text=text, width=11, height=2,
-                            font=("Helvetica", 10, "bold"), fg="green", 
+                            font=("Helvetica", 10, "bold"), fg="lightseagreen", 
                             bg="white", command=command)
             btn.place(x=50, y=50+i*100)
 
@@ -220,7 +220,7 @@ class LoginWindow:
         self.password=self.create_entry("Password", show="*")
 
         next_button=tk.Button(self.login_window, text="NEXT", width=7, 
-                              height=1, fg="green", bg="white", 
+                              height=1, fg="lightseagreen", bg="white", 
                               font=("Helvetica", 15, "bold"),
                               command=self.login)
         next_button.pack(pady=20)
@@ -235,7 +235,7 @@ class LoginWindow:
 
         signup_change_button=tk.Button(self.login_window, text="SIGN UP", 
                                        font=("Helvetica", 15, "bold"), 
-                                       width=7, height=1, fg="green", 
+                                       width=7, height=1, fg="lightseagreen", 
                                        bg="white", command=change)
         signup_change_button.place(x=480, y=20)
 
@@ -374,7 +374,7 @@ class SignUpWindow:
 
         next_button=tk.Button(self.signup_window, text="NEXT", width=7,
                               font=("Helvetica", 15, "bold"), 
-                              height=1, fg="green", bg="white", 
+                              height=1, fg="lightseagreen", bg="white", 
                               command=self.signup)
         next_button.pack(pady=20)
 
@@ -386,7 +386,7 @@ class SignUpWindow:
 
         login_change_button=tk.Button(self.signup_window, text="LOGIN", 
                                       font=("Helvetica", 15, "bold"),
-                                      width=7, height=1, fg="green", 
+                                      width=7, height=1, fg="lightseagreen", 
                                       bg="white", command=change2)
         login_change_button.place(x=480, y=20)
 
@@ -583,7 +583,7 @@ class QuestionWindow:
 
         self.check_button = tk.Button(self.window, text="Next", bg="white", width=7, 
                                 font=("Helvetica", 13, "bold"), 
-                                fg="green", command=self.finish)
+                                fg="lightseagreen", command=self.finish)
         self.check_button.pack()
 
         title1=tk.Label(self.window, text="\nThere will be a short quiz that will see what "+ 
@@ -673,7 +673,7 @@ class LevelQuiz:
         style.configure("green.Horizontal.TProgressbar", 
                         thickness=30, 
                         troughcolor='black', 
-                        background='green')
+                        background='lightseagreen')
         self.progress_var = tk.DoubleVar()
         self.progress_bar = ttk.Progressbar(self.root, maximum=100, length=300, 
                                              variable=self.progress_var, 
@@ -769,7 +769,7 @@ class LevelQuiz:
     def display_title(self):
         """Title of the quiz."""
         title = tk.Label(self.root, text="Level Quiz",
-                         width=50, bg="green", fg="white", height=2,
+                         width=50, bg="lightseagreen", fg="white", height=2,
                          font=("Helvetica", 26, "bold"))
         title.place(x=0, y=0)
 
@@ -833,7 +833,7 @@ class MainQuiz:
         style.configure("green.Horizontal.TProgressbar", 
                         thickness=30, 
                         troughcolor='black', 
-                        background='green')
+                        background='lightseagreen')
         self.progress_var = tk.DoubleVar()
         self.progress_bar = ttk.Progressbar(self.root, maximum=100, length=300, 
                                              variable=self.progress_var, 
@@ -928,7 +928,7 @@ class MainQuiz:
     def display_title(self):
         """Display the title of the quiz."""
         title = tk.Label(self.root, text="Quiz",
-                         width=50, bg="green", fg="white", height=2,
+                         width=50, bg="lightseagreen", fg="white", height=2,
                          font=("Helvetica", 26, "bold"))
         title.place(x=0, y=0)
 
@@ -1036,6 +1036,7 @@ class QuizSelect:
     def get_selected_quiz(self):
         return self.selected_quiz
     
+
 # image slideshow (controlled) 2 code
 class Slideshow():
     def __init__(self, root, base_dir):
@@ -1043,6 +1044,9 @@ class Slideshow():
         self.root.title("Page By Page - Learn Space")
         self.base_dir = base_dir
         self.level_var = tk.StringVar(value="1")
+        image_base_dir = "images"                                                   #!!!!!!!!!!!
+        #open image_base_dir                                                         #!!!!!!!!!!!
+        # app1 = Slideshow(root1, image_base_dir)
 
         # Level Selection Dropdown
         level_frame = tk.Frame(root)
@@ -1113,7 +1117,6 @@ class Slideshow():
         self.display_image()
 
 
-
 # All the code for the Main Home Page
 class DashboardWindow:
     """Code for the window after user had logged in."""
@@ -1139,7 +1142,7 @@ class DashboardWindow:
         self.dashboard_window.geometry(f"{w_w}x{w_h}+{x_place}+{y_place}")
 
         title=tk.Label(self.dashboard_window, text="Page By Page", 
-                       font=("Helvetica", 20, "bold"), fg="green", 
+                       font=("Helvetica", 20, "bold"), fg="lightseagreen", 
                        bg="oldlace")
         title.pack(pady=20)
 
@@ -1161,7 +1164,7 @@ class DashboardWindow:
 
         profile_button=tk.Button(self.dashboard_window, text='PROFILE', 
                                  font=("Helvetica", 10, "bold"), width=10, 
-                                 height=2, fg="green", bg="white", 
+                                 height=2, fg="lightseagreen", bg="white", 
                                  command=self.display_profile)
         profile_button.place(x=1090, y=50)
 
@@ -1198,7 +1201,7 @@ class DashboardWindow:
         for i, (text, command) in enumerate(buttons):
             btn=tk.Button(self.dashboard_window, text=text, width=11, 
                           height=2, font=("Helvetica", 10, "bold"), 
-                          fg="green", bg="white", command=command)
+                          fg="lightseagreen", bg="white", command=command)
             btn.place(x=50, y=50+i*100)
     
     # The area that will be cleared to create the tab look. Where it 
@@ -1234,7 +1237,7 @@ class DashboardWindow:
                        "vocabulary.\nClick the buttons on the side "+
                        "to navigate through the program.", 
                        font=("Helvetica", 14),
-                       fg="green", bg="oldlace")
+                       fg="lightseagreen", bg="oldlace")
         label.place(x=10, y=60)
 
         # Load and display image
@@ -1283,7 +1286,7 @@ class DashboardWindow:
                          " take the quiz, press the quiz button below.\n" +
                          "Then go onto the Learn tab to teach yourself " +
                          "more, to do better in the quiz, next time.",
-                         font=("Helvetica", 15), fg="green", bg="oldlace")
+                         font=("Helvetica", 15), fg="lightseagreen", bg="oldlace")
         label.place(x=0, y=80)
 
         # Load and display image
@@ -1299,7 +1302,7 @@ class DashboardWindow:
         # Quiz button
         quiz_button = tk.Button(self.main_frame, text='QUIZ', width=10, 
                                 height=2, font=("Helvetica", 10, "bold"), 
-                                fg="green", bg="white", 
+                                fg="lightseagreen", bg="white", 
                                 command=self.open_quiz_window_message)
         quiz_button.place(x=300, y=635)
 
@@ -1517,7 +1520,7 @@ class DashboardWindow:
 
             info_label=tk.Label(self.main_frame, text="Your profile details"+
                                 " and all your quiz results.", 
-                                font=("Helvetica", 15), fg="green", 
+                                font=("Helvetica", 15), fg="lightseagreen", 
                                 bg="oldlace")
             info_label.place(x=155, y=10)
 
@@ -1640,6 +1643,6 @@ if __name__ == "__main__":
     app=MainWindow(root)
     root.mainloop()
     root1 = tk.Tk()
-    image_base_dir = "/Users/rheaschool/Library/CloudStorage/GoogleDrive-lalr@stu.otc.school.nz/My Drive/Yr 13/Digital Science/Main_Code/images"
-    app1 = Slideshow(root1, image_base_dir)
-    root1.mainloop()
+    # image_base_dir = "images"
+    # app1 = Slideshow(root1, image_base_dir)
+    # root1.mainloop()
