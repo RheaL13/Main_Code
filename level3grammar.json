@@ -1,0 +1,38 @@
+//change to be for level 3 grammar
+{
+    "question": [
+        "Choose the correct sentence:",
+        "Which is a question?",
+        "Pick the correct word:",
+        "Choose the sentence with capital letters:",
+        "What goes at the end of this sentence? 'I like cake'",
+        "Choose the best word to fill in: 'He ___ running.'",
+        "What is the subject in 'The dog runs fast'?",
+        "What is the verb in 'She sings a song'?",
+        "Choose the right pronoun:",
+        "Which sentence is past tense?",
+        "Which is a complete sentence?",
+        "Pick the correct sentence:",
+        "Choose the correct question:",
+        "Which sentence uses 'a' correctly?",
+        "Which sentence uses 'an' correctly?"
+    ],
+    "options": [
+        ["a) I like apples. ✅", "b) Me like apples.", "c) I liking apples.", "d) Like I apples."],
+        ["a) She has a toy", "b) Do you want to play? ✅", "c) He likes dogs", "d) They go park"],
+        ["a) I am ✅", "b) I is", "c) Me are", "d) Me is"],
+        ["a) i go to school.", "b) I go to school. ✅", "c) i Go To School.", "d) I go to School."],
+        ["a) . ✅", "b) !", "c) ?", "d) ,"],
+        ["a) is ✅", "b) are", "c) am", "d) be"],
+        ["a) dog ✅", "b) runs", "c) fast", "d) The"],
+        ["a) sings ✅", "b) she", "c) song", "d) a"],
+        ["a) He ✅", "b) Him", "c) They", "d) Us"],
+        ["a) I play", "b) I am playing", "c) I played ✅", "d) I plays"],
+        ["a) The boy ran ✅", "b) Running fast", "c) Ran to the shop", "d) Boy ran"],
+        ["a) We is happy.", "b) We are happy. ✅", "c) Us is happy.", "d) We be happy."],
+        ["a) What time is it? ✅", "b) What time it is?", "c) What is time it?", "d) Time is what it?"],
+        ["a) I see a apple", "b) She has a dog ✅", "c) He got a ice cream", "d) It is a orange"],
+        ["a) He has an dog", "b) It is an apple ✅", "c) I ate an cake", "d) She saw an cat"]
+    ],
+    "answer": [1, 2, 1, 2, 1, 1, 1, 1, 1, 3, 1, 2, 1, 2, 2]
+}

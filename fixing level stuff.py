@@ -647,12 +647,13 @@ class QuestionWindow:
 
 class LevelQuiz:
     """Code for the window of the level quiz."""
-    def __init__(self, root, user_info):
+    def __init__(self, root, user_info, levelnumber):
         self.root = root
         self.root.configure(bg="oldlace")
         self.q_no = 0
         self.correct = 0
         self.user_info = user_info
+        self.levelnumber = levelnumber
 
         # Load the data from the JSON file
         with open('data.json') as f:
@@ -956,168 +957,156 @@ class MainQuiz:
 
 
 class QuizSelect:
-    """A dialog to select the quiz area (grammar, spelling, or vocab)."""
-    def __init__(self, parent):
+    def __init__(self, parent, current_level):
         self.dialog = tk.Toplevel(parent)
         self.dialog.title("Select Quiz Area")
         self.dialog.configure(bg="oldlace")
         self.dialog.resizable(False, False)
-        #level_number = "1"
-
-        # Calculate center position
-        w_w = 400
-        w_h = 300
-        screen_width = self.dialog.winfo_screenwidth()
-        screen_height = self.dialog.winfo_screenheight()
-        x_place = (screen_width - w_w) // 2
-        y_place = (screen_height - w_h) // 4
-        self.dialog.geometry(f"{w_w}x{w_h}+{x_place}+{y_place}")
-
-    def display_class_variable(self):
-        # Title Label
-        title = tk.Label(self.dialog, text="Select the Quiz Area",
-                         font=("Helvetica", 16, "bold"), fg="black", bg="oldlace")
-        title.pack(pady=30)
-       
-        # Heading Label
-        heading = tk.Label(self.dialog, text=f"These quizzes are for level {LevelQuiz.levelnumber}",
-                         font=("Helvetica", 15, "bold"), fg="black", bg="oldlace")
-        heading.pack(pady=30)
-
-        # Buttons for each quiz type
-        grammar_button = tk.Button(self.dialog, text="Grammar", width=15, height=2, command=self.select_grammar)
-        grammar_button.pack(pady=10)
-
-        spelling_button = tk.Button(self.dialog, text="Spelling", width=15, height=2, command=self.select_spelling)
-        spelling_button.pack(pady=10)
-
-        vocab_button = tk.Button(self.dialog, text="Vocabulary", width=15, height=2, command=self.select_vocab)
-        vocab_button.pack(pady=10)
-
+        self.level_number = current_level  # User's current level
         self.selected_quiz = None
 
-    # if level_number = "1":
+        # Center the window on screen
+        w_w, w_h = 400, 350
+        screen_w = self.dialog.winfo_screenwidth()
+        screen_h = self.dialog.winfo_screenheight()
+        x = (screen_w - w_w) // 2
+        y = (screen_h - w_h) // 4
+        self.dialog.geometry(f"{w_w}x{w_h}+{x}+{y}")
+
+    def display_variable(self):
+        # Label to show current level
+        level_label = tk.Label(self.dialog, 
+                               text=f"Your current level: {self.level_number}",
+                               font=("Helvetica", 15, "bold"), bg="oldlace")
+        level_label.pack(pady=10)
+
+        # Info label
+        info_label = tk.Label(self.dialog,
+                              text="You can keep this level or select a different one:",
+                              font=("Helvetica", 12), bg="oldlace")
+        info_label.pack(pady=5)
+
+        # Dropdown to choose level
+        levels = [1, 2, 3]
+        self.level_var = tk.IntVar(value=self.level_number)
+        level_dropdown = ttk.Combobox(self.dialog, values=levels, textvariable=self.level_var, state="readonly")
+        level_dropdown.pack(pady=5)
+
+        # Label for quiz type
+        quiz_label = tk.Label(self.dialog,
+                              text="Select the quiz area:",
+                              font=("Helvetica", 14, "bold"), bg="oldlace")
+        quiz_label.pack(pady=15)
+
+        # Buttons for quiz types
+        grammar_btn = tk.Button(self.dialog, text="Grammar", width=20, height=2,
+                                command=self.select_grammar)
+        grammar_btn.pack(pady=5)
+
+        spelling_btn = tk.Button(self.dialog, text="Spelling", width=20, height=2,
+                                 command=self.select_spelling)
+        spelling_btn.pack(pady=5)
+
+        vocab_btn = tk.Button(self.dialog, text="Vocabulary", width=20, height=2,
+                              command=self.select_vocab)
+        vocab_btn.pack(pady=5)
+
     def select_grammar(self):
-        self.selected_quiz = 'level1grammar.json'
+        chosen_level = self.level_var.get()
+        self.selected_quiz = f"level{chosen_level}grammar.json"
         self.dialog.destroy()
 
     def select_spelling(self):
-        self.selected_quiz = 'level1spelling.json'
+        chosen_level = self.level_var.get()
+        self.selected_quiz = f"level{chosen_level}spelling.json"
         self.dialog.destroy()
 
     def select_vocab(self):
-        self.selected_quiz = 'level1vocab.json'
+        chosen_level = self.level_var.get()
+        self.selected_quiz = f"level{chosen_level}vocab.json"
         self.dialog.destroy()
-    # elif level_number = "2":
-    #     def select_grammar(self):
-    #         self.selected_quiz = 'level2grammar.json'
-    #         self.dialog.destroy()
 
-    #     def select_spelling(self):
-    #         self.selected_quiz = 'level2spelling.json'
-    #         self.dialog.destroy()
-
-    #     def select_vocab(self):
-    #         self.selected_quiz = 'level2vocab.json'
-    #         self.dialog.destroy()
-    # elif level_number = "3":
-    #     def select_grammar(self):
-    #         self.selected_quiz = 'level3grammar.json'
-    #         self.dialog.destroy()
-
-    #     def select_spelling(self):
-    #         self.selected_quiz = 'level3spelling.json'
-    #         self.dialog.destroy()
-
-    #     def select_vocab(self):
-    #         self.selected_quiz = 'level3vocab.json'
-    #         self.dialog.destroy()
-    # else:
     def get_selected_quiz(self):
         return self.selected_quiz
     
-b_instance = QuizSelect(parent=...)
-b_instance.display_class_variable()
-    
 
 # image slideshow (controlled) 2 code
-class Slideshow():
-    def __init__(self, root, base_dir):
-        self.root = root
-        self.root.title("Page By Page - Learn Space")
-        self.base_dir = base_dir
-        self.level_var = tk.StringVar(value="1")
-        image_base_dir = "images"                                                   #!!!!!!!!!!!
-        #open image_base_dir                                                         #!!!!!!!!!!!
-        # app1 = Slideshow(root1, image_base_dir)
+class Slideshow:
+    def __init__(self, parent, image_dir):
+        self.top = tk.Toplevel(parent)
+        self.top.title("Literacy Learning Slideshow")
 
-        # Level Selection Dropdown
-        level_frame = tk.Frame(root)
+        self.image_dir = image_dir
+        self.images_by_level = {'1': [], '2': [], '3': []}
+
+        # Load images from subdirectories: images/Level 1/, images/Level 2/, etc.
+        level_dirs = {'1': 'Level 1', '2': 'Level 2', '3': 'Level 3'}
+        for level, folder in level_dirs.items():
+            level_path = os.path.join(self.image_dir, folder)
+            if os.path.exists(level_path):
+                for f in os.listdir(level_path):
+                    if f.lower().endswith(('.png', '.jpg', '.jpeg', '.gif')):
+                        self.images_by_level[level].append(os.path.join(level_path, f))
+
+        self.level = '1'
+        self.current_index = 0
+
+        self.level_var = tk.StringVar(value='1')
+        self.create_level_selector()
+
+        self.canvas = tk.Canvas(self.top, width=800, height=600, bg="white")
+        self.canvas.pack(pady=20)
+
+        btn_frame = tk.Frame(self.top, bg="white")
+        btn_frame.pack()
+
+        self.prev_button = tk.Button(btn_frame, text="Previous", command=self.prev_image)
+        self.prev_button.pack(side=tk.LEFT, padx=10)
+
+        self.next_button = tk.Button(btn_frame, text="Next", command=self.next_image)
+        self.next_button.pack(side=tk.RIGHT, padx=10)
+
+        self.display_image()
+
+    def create_level_selector(self):
+        level_frame = tk.Frame(self.top, bg="white")
         level_frame.pack(pady=10)
-        tk.Label(level_frame, text="Select Level:").pack(side=tk.LEFT)
-        level_menu = tk.OptionMenu(level_frame, self.level_var, "1", "2", "3", command=self.change_level)
-        level_menu.pack(side=tk.LEFT)
 
-        # Current level display label
-        self.level_label = tk.Label(root, text="", font=("Helvetica", 16))
-        self.level_label.pack(pady=5)
+        tk.Label(level_frame, text="Select Level:", font=("Helvetica", 12, "bold"), bg="white").pack(side=tk.LEFT)
+        for lvl in ['1', '2', '3']:
+            rb = tk.Radiobutton(level_frame, text=f"Level {lvl}", variable=self.level_var, value=lvl,
+                                command=self.change_level, bg="white", font=("Helvetica", 12))
+            rb.pack(side=tk.LEFT, padx=5)
 
-        # Image Display Canvas
-        self.canvas = tk.Canvas(root, width=800, height=600)
-        self.canvas.pack()
-
-        # Navigation Buttons
-        nav_frame = tk.Frame(root)
-        nav_frame.pack(pady=10)
-        self.prev_button = tk.Button(nav_frame, text="Previous", command=self.prev_image)
-        self.prev_button.pack(side=tk.LEFT, padx=20)
-        self.next_button = tk.Button(nav_frame, text="Next", command=self.next_image)
-        self.next_button.pack(side=tk.RIGHT, padx=20)
-
-        # Load default level
-        self.image_paths = []
+    def change_level(self):
+        self.level = self.level_var.get()
         self.current_index = 0
-        self.change_level("1")
-
-    def change_level(self, level):
-        level_folder = os.path.join(self.base_dir, f"Level_{level}")
-        if not os.path.exists(level_folder):
-            messagebox.showerror("Error", f"Folder not found: {level_folder}")
-            return
-        self.image_paths = [
-            os.path.join(level_folder, f)
-            for f in os.listdir(level_folder)
-            if f.lower().endswith(('.png', '.jpg', '.jpeg', '.gif'))
-        ]
-        if not self.image_paths:
-            messagebox.showinfo("No Images", f"No images found in Level {level}.")
-            self.canvas.delete("all")
-            self.level_label.config(text=f"Level {level} – No content available")
-            return
-
-        self.current_index = 0
-        self.level_label.config(text=f"Now Learning: Level {level}")
         self.display_image()
 
     def display_image(self):
-        image_path = self.image_paths[self.current_index]
+        image_list = self.images_by_level.get(self.level, [])
+        if not image_list:
+            self.canvas.delete("all")
+            self.canvas.create_text(400, 300, text="No images found for this level.",
+                                    font=("Helvetica", 18), fill="red")
+            return
+
+        image_path = image_list[self.current_index % len(image_list)]
         image = Image.open(image_path)
-        image = image.resize((800, 600))
+        image = image.resize((800, 600), Image.Resampling.LANCZOS) # resizing and is aligned with the Pillow library
         self.photo = ImageTk.PhotoImage(image)
-        self.canvas.delete("all")  # Clear previous image
+        self.canvas.delete("all")
         self.canvas.create_image(0, 0, anchor=tk.NW, image=self.photo)
 
     def next_image(self):
-        if not self.image_paths:
-            return
-        self.current_index = (self.current_index + 1) % len(self.image_paths)
-        self.display_image()
+        if self.images_by_level[self.level]:
+            self.current_index = (self.current_index + 1) % len(self.images_by_level[self.level])
+            self.display_image()
 
     def prev_image(self):
-        if not self.image_paths:
-            return
-        self.current_index = (self.current_index - 1) % len(self.image_paths)
-        self.display_image()
+        if self.images_by_level[self.level]:
+            self.current_index = (self.current_index - 1) % len(self.images_by_level[self.level])
+            self.display_image()
 
 
 # All the code for the Main Home Page
@@ -1293,7 +1282,7 @@ class DashboardWindow:
         label.place(x=0, y=80)
 
         # Load and display image
-        image_path = "image1.jpg"
+        image_path = "quizpageimage.jpg"
         image = Image.open(image_path)
         resize_image = image.resize((750, 350))
         img = ImageTk.PhotoImage(resize_image)
@@ -1310,25 +1299,21 @@ class DashboardWindow:
         quiz_button.place(x=300, y=635)
 
     def open_quiz_window_message(self):
-        # Open the QuizSelectionDialog to let the user choose the quiz area
-        quiz_dialog = QuizSelect(self.dashboard_window)
-        self.dashboard_window.wait_window(quiz_dialog.dialog)  # Wait for the dialog to close
+        current_level = self.user_info.get("level", 1)  # default to level 1 if not set
+        quiz_dialog = QuizSelect(self.dashboard_window, current_level)
+        quiz_dialog.display_variable()
+        self.dashboard_window.wait_window(quiz_dialog.dialog)
 
-        # Get the selected quiz file
         selected_quiz = quiz_dialog.get_selected_quiz()
-
         if selected_quiz:
-            # Load the selected quiz JSON file
             try:
                 with open(selected_quiz) as f:
                     quiz_data = json.load(f)
                 self.open_quiz_window(quiz_data)
             except FileNotFoundError:
-                mb.showerror("Error", f"Quiz file for {selected_quiz} not found.")
+                mb.showerror("Error", f"Quiz file {selected_quiz} not found.")
         else:
-            mb.showwarning("No Selection", "No quiz selected. Please choose a quiz area.",
-                           parent=self.dashboard_window)
-
+            mb.showwarning("No Selection", "No quiz selected. Please choose a quiz area.", parent=self.dashboard_window)
 
     # Code to open the quiz window with the selected quiz data
     def open_quiz_window(self, quiz_data):
@@ -1340,6 +1325,10 @@ class DashboardWindow:
 
         # Start the quiz with the loaded data
         MainQuiz(quiz_window, quiz_data, self.user_info)
+    
+    def open_learn_slideshow(self):
+        image_directory = "images"  # Update this if your folder is elsewhere
+        Slideshow(self.main_frame, image_directory)
 
     # Display the learn page
     def display_learn(self):
@@ -1366,9 +1355,8 @@ class DashboardWindow:
         text_for_button.place(x=200, y=100)
 
         slideshow_button = tk.Button(self.main_frame, text = "Click here",
-                                     command = Slideshow)
+                                     command = self.open_learn_slideshow)
         slideshow_button.place(x=290, y=150)
-
 
     # The About page of the Dashboard Window
     def display_about(self):
@@ -1641,11 +1629,6 @@ class DashboardWindow:
 
 
 if __name__ == "__main__":
-
     root = tk.Tk()
     app=MainWindow(root)
     root.mainloop()
-    root1 = tk.Tk()
-    # image_base_dir = "images"
-    # app1 = Slideshow(root1, image_base_dir)
-    # root1.mainloop()
