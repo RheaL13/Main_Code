@@ -647,13 +647,12 @@ class QuestionWindow:
 
 class LevelQuiz:
     """Code for the window of the level quiz."""
-    def __init__(self, root, user_info, levelnumber):
+    def __init__(self, root, user_info):
         self.root = root
         self.root.configure(bg="oldlace")
         self.q_no = 0
         self.correct = 0
         self.user_info = user_info
-        self.levelnumber = levelnumber
 
         # Load the data from the JSON file
         with open('data.json') as f:
