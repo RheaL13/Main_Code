@@ -17,21 +17,21 @@
         "Choose the sentence with correct punctuation:"
     ],
     "options": [
-        ["a) He don't like cake.", "b) He doesn't like cake. ✅", "c) He don't likes cake.", "d) He not like cake."],
-        ["a) quick", "b) run ✅", "c) hat", "d) soft"],
-        ["a) She play", "b) She is playing", "c) She played ✅", "d) She plays"],
-        ["a) cat", "b) book", "c) Sarah ✅", "d) tree"],
-        ["a) He went home", "b) Do you have your bag? ✅", "c) She ran fast", "d) They are tired"],
-        ["a) ball", "b) red ✅", "c) bounced", "d) the"],
-        ["a) .", "b) !", "c) ? ✅", "d) ,"],
-        ["a) They was going.", "b) They were going. ✅", "c) They is going.", "d) They be going."],
-        ["a) in ✅", "b) at", "c) to", "d) into"],
-        ["a) childs", "b) children ✅", "c) childes", "d) childrens"],
-        ["a) I'm go to school.", "b) I am going to school. ✅", "c) I going to school.", "d) I am goes to school."],
-        ["a) slowly ✅", "b) run", "c) bike", "d) strong"],
-        ["a) sleeps", "b) cat ✅", "c) the", "d) none"],
-        ["a) I like apples bananas and grapes.", "b) I like apples, bananas, and grapes. ✅", "c) I like, apples bananas and grapes.", "d) I like apples bananas, and grapes."],
-        ["a) Lets go to the park.", "b) Let's go to the park! ✅", "c) Lets go to the park?", "d) Let's go, to the park."]
+        ["He don't like cake.", "He doesn't like cake. ✅", "He don't likes cake.", "He not like cake."],
+        ["quick", "run ✅", "hat", "soft"],
+        ["She play", "She is playing", "She played ✅", "She plays"],
+        ["cat", "book", "Sarah ✅", "tree"],
+        ["He went home", "Do you have your bag? ✅", "She ran fast", "They are tired"],
+        ["ball", "red ✅", "bounced", "the"],
+        [".", "!", "? ✅", ","],
+        ["They was going.", "They were going. ✅", "They is going.", "They be going."],
+        ["in ✅", "at", "to", "into"],
+        ["childs", "children ✅", "childes", "childrens"],
+        ["I'm go to school.", "I am going to school. ✅", "I going to school.", "I am goes to school."],
+        ["slowly ✅", "run", "bike", "strong"],
+        ["sleeps", "cat ✅", "the", "none"],
+        ["I like apples bananas and grapes.", "I like apples, bananas, and grapes. ✅", "I like, apples bananas and grapes.", "I like apples bananas, and grapes."],
+        ["Lets go to the park.", "Let's go to the park! ✅", "Lets go to the park?", "Let's go, to the park."]
     ],
     "answer": [2, 2, 3, 3, 2, 2, 3, 2, 1, 2, 2, 1, 2, 2, 2]
 }

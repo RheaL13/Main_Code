@@ -17,21 +17,21 @@
         "Choose the correct spelling:"
     ],
     "options": [
-        ["a) definately", "b) definitely ✅", "c) definetly", "d) definantly"],
-        ["a) journal ✅", "b) jornal", "c) journaal", "d) jorunal"],
-        ["a) intresting", "b) interesting ✅", "c) intrestin", "d) intersting"],
-        ["a) democracy ✅", "b) democrazy", "c) democrasy", "d) demacracy"],
-        ["a) eror", "b) error ✅", "c) errar", "d) erorr"],
-        ["a) balconey", "b) balcony ✅", "c) balconny", "d) ballcony"],
-        ["a) nesessary", "b) necesary", "c) necessary ✅", "d) neccessary"],
-        ["a) accident ✅", "b) accidant", "c) acsident", "d) accidnet"],
-        ["a) seperate", "b) separite", "c) separate ✅", "d) seperite"],
-        ["a) ceremony ✅", "b) cerimony", "c) seremony", "d) ceremoney"],
-        ["a) bracelet ✅", "b) bracelit", "c) braselet", "d) braceleet"],
-        ["a) illustrate ✅", "b) elustrate", "c) illustrait", "d) illistrate"],
-        ["a) environment ✅", "b) enviroment", "c) enviromentt", "d) envirenment"],
-        ["a) honest ✅", "b) onest", "c) honist", "d) honnest"],
-        ["a) library ✅", "b) libary", "c) libarry", "d) lybrary"]
+        ["definately", "definitely ✅", "definetly", "definantly"],
+        ["journal ✅", "jornal", "journaal", "jorunal"],
+        ["intresting", "interesting ✅", "intrestin", "intersting"],
+        ["democracy ✅", "democrazy", "democrasy", "demacracy"],
+        ["eror", "error ✅", "errar", "erorr"],
+        ["balconey", "balcony ✅", "balconny", "ballcony"],
+        ["nesessary", "necesary", "necessary ✅", "neccessary"],
+        ["accident ✅", "accidant", "acsident", "accidnet"],
+        ["seperate", "separite", "separate ✅", "seperite"],
+        ["ceremony ✅", "cerimony", "seremony", "ceremoney"],
+        ["bracelet ✅", "bracelit", "braselet", "braceleet"],
+        ["illustrate ✅", "elustrate", "illustrait", "illistrate"],
+        ["environment ✅", "enviroment", "enviromentt", "envirenment"],
+        ["honest ✅", "onest", "honist", "honnest"],
+        ["library ✅", "libary", "libarry", "lybrary"]
     ],
     "answer": [2, 1, 2, 1, 2, 2, 3, 1, 3, 1, 1, 1, 1, 1, 1]
 }

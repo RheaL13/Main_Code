@@ -17,21 +17,21 @@
         "Which sentence uses quotation marks correctly?"
     ],
     "options": [
-        ["a) I like apples. ✅", "b) Me like apples.", "c) I liking apples.", "d) Like I apples."],
-        ["a) Jumping high.", "b) The dog barked loudly. ✅", "c) Running through the park.", "d) Went to school."],
-        ["a) quickly", "b) ran ✅", "c) he", "d) home"],
-        ["a) She ran and jumped.", "b) I went to the shop, and I bought bread. ✅", "c) He eats apples.", "d) The sky is blue."],
-        ["a) I went to the zoo.", "b) I am going to the zoo.", "c) I will go to the zoo. ✅", "d) I go to the zoo."],
-        ["a) verb", "b) noun", "c) adjective ✅", "d) adverb"],
-        ["a) Can we go to the park", "b) Can we go to the park.", "c) Can we go to the park? ✅", "d) Can we go to the park!"],
-        ["a) under ✅", "b) quick", "c) apple", "d) ran"],
-        ["a) mouses", "b) mice ✅", "c) mouse", "d) mices"],
-        ["a) Its raining outside.", "b) It's raining outside. ✅", "c) Its' raining outside.", "d) Its raining' outside."],
-        ["a) man", "b) tall", "c) smiled", "d) The tall man ✅"],
-        ["a) and ✅", "b) run", "c) blue", "d) house"],
-        ["a) is", "b) are ✅", "c) am", "d) be"],
-        ["a) She", "b) kicked", "c) ball ✅", "d) the"],
-        ["a) She said, 'Let's go.' ✅", "b) 'She said, Let's go.'", "c) She said, Let's go.''", "d) ''She said, Let's go."]
+        ["I like apples. ✅", "Me like apples.", "I liking apples.", "Like I apples."],
+        ["Jumping high.", "The dog barked loudly. ✅", "Running through the park.", "Went to school."],
+        ["quickly", "ran ✅", "he", "home"],
+        ["She ran and jumped.", "I went to the shop, and I bought bread. ✅", "He eats apples.", "The sky is blue."],
+        ["I went to the zoo.", "I am going to the zoo.", "I will go to the zoo. ✅", "I go to the zoo."],
+        ["verb", "noun", "adjective ✅", "adverb"],
+        ["Can we go to the park", "Can we go to the park.", "Can we go to the park? ✅", "Can we go to the park!"],
+        ["under ✅", "quick", "apple", "ran"],
+        ["mouses", "mice ✅", "mouse", "mices"],
+        ["Its raining outside.", "It's raining outside. ✅", "Its' raining outside.", "Its raining' outside."],
+        ["man", "tall", "smiled", "The tall man ✅"],
+        ["and ✅", "run", "blue", "house"],
+        ["is", "are ✅", "am", "be"],
+        ["She", "kicked", "ball ✅", "the"],
+        ["She said, 'Let's go.' ✅", "'She said, Let's go.'", "She said, Let's go.''", "''She said, Let's go."]
     ],
     "answer": [1, 2, 2, 2, 3, 3, 3, 1, 2, 2, 4, 1, 2, 3, 1]
 }

@@ -17,21 +17,21 @@
         "Choose the correct spelling for something you read:"
     ],
     "options": [
-        ["a) beter", "b) better ✅", "c) betar", "d) bettar"],
-        ["a) skool", "b) school ✅", "c) schoool", "d) schoul"],
-        ["a) expeckt", "b) expect ✅", "c) expecktation", "d) expakt"],
-        ["a) loos", "b) lose ✅", "c) luze", "d) looz"],
-        ["a) bottel", "b) bottle ✅", "c) botal", "d) botle"],
-        ["a) Tusday", "b) Toosday", "c) Tuesday ✅", "d) Tuseday"],
-        ["a) diffrent", "b) different ✅", "c) diferent","d) defferent"],
-        ["a) familee", "b) family ✅", "c) familly", "d) fammily"],
-        ["a) humourous", "b) humorous ✅", "c) humerous", "d) humoros"],
-        ["a) probly", "b) probably ✅", "c) probbly", "d) probebly"],
-        ["a) became ✅", "b) becaim", "c) becaem", "d) becim"],
-        ["a) rabbet", "b) rabbit ✅", "c) rabbbit", "d) rabit"],
-        ["a) giraffe ✅", "b) giraff", "c) girafe", "d) jiraf"],
-        ["a) freezing ✅", "b) frezing", "c) freazing", "d) frezeing"],
-        ["a) magazine ✅", "b) magazin", "c) magasine", "d) magazeen"]
+        ["beter", "better ✅", "betar", "bettar"],
+        ["skool", "school ✅", "schoool", "schoul"],
+        ["expeckt", "expect ✅", "expecktation", "expakt"],
+        ["loos", "lose ✅", "luze", "looz"],
+        ["bottel", "bottle ✅", "botal", "botle"],
+        ["Tusday", "Toosday", "Tuesday ✅", "Tuseday"],
+        ["diffrent", "different ✅", "diferent","defferent"],
+        ["familee", "family ✅", "familly", "fammily"],
+        ["humourous", "humorous ✅", "humerous", "humoros"],
+        ["probly", "probably ✅", "probbly", "probebly"],
+        ["became ✅", "becaim", "becaem", "becim"],
+        ["rabbet", "rabbit ✅", "rabbbit", "rabit"],
+        ["giraffe ✅", "giraff", "girafe", "jiraf"],
+        ["freezing ✅", "frezing", "freazing", "frezeing"],
+        ["magazine ✅", "magazin", "magasine", "magazeen"]
     ],
     "answer": [2, 2, 2, 2, 2, 3, 2, 2, 2, 2, 1, 2, 1, 1, 1]
 }

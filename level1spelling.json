@@ -17,21 +17,21 @@
         "Pick the correct word for a toy on wheels:"
     ],
     "options": [
-        ["a) kat", "b) cat ✅", "c) katte", "d) ct"],
-        ["a) dawg", "b) dog ✅", "c) dug", "d) dag"],
-        ["a) appl", "b) appel", "c) apple ✅", "d) apl"],
-        [" a) bloo", "b) blu", "c) blue ✅", "d) blou"],
-        ["a) sun ✅", "b) snun", "c) sunn", "d) suun"],
-        ["a) trane", "b) train ✅", "c) trayn", "d) tran"],
-        ["a) foad", "b) fude", "c) food ✅", "d) fuud"],
-        ["a) hat ✅", "b) het", "c) hatt", "d) haat"],
-        ["a) kow", "b) cow ✅", "c) cauw", "d) coww"],
-        ["a) beg", "b) baag", "c) bag ✅", "d) bug"],
-        ["a) burd", "b) berd", "c) bord", "d) bird ✅"],
-        ["a) sheep ✅", "b) shep", "c) shhep", "d) sheap"],
-        ["a) watter", "b) water ✅", "c) watir", "d) wotor"],
-        ["a) two ✅", "b) to", "c) too", "d) tow"],
-        ["a) truk", "b) truc", "c) trukk", "d) truck ✅"]
+        ["kat", "cat ✅", "katte", "ct"],
+        ["dawg", "dog ✅", "dug", "dag"],
+        ["appl", "appel", "apple ✅", "apl"],
+        [" bloo", "blu", "blue ✅", "blou"],
+        ["sun ✅", "snun", "sunn", "suun"],
+        ["trane", "train ✅", "trayn", "tran"],
+        ["foad", "fude", "food ✅", "fuud"],
+        ["hat ✅", "het", "hatt", "haat"],
+        ["kow", "cow ✅", "cauw", "coww"],
+        ["beg", "baag", "bag ✅", "bug"],
+        ["burd", "berd", "bord", "bird ✅"],
+        ["sheep ✅", "shep", "shhep", "sheap"],
+        ["watter", "water ✅", "watir", "wotor"],
+        ["two ✅", "to", "too", "tow"],
+        ["truk", "truc", "trukk", "truck ✅"]
     ],
     "answer": [2, 2, 3, 3, 1, 2, 3, 1, 2, 3, 4, 1, 2, 1, 4]
 }

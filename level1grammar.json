@@ -17,21 +17,21 @@
         "Which sentence uses 'an' correctly?"
     ],
     "options": [
-        ["a) I like apples. ✅", "b) Me like apples.", "c) I liking apples.", "d) Like I apples."],
-        ["a) She has a toy", "b) Do you want to play? ✅", "c) He likes dogs", "d) They go park"],
-        ["a) I am ✅", "b) I is", "c) Me are", "d) Me is"],
-        ["a) i go to school.", "b) I go to school. ✅", "c) i Go To School.", "d) I go to School."],
-        ["a) . ✅", "b) !", "c) ?", "d) ,"],
-        ["a) is ✅", "b) are", "c) am", "d) be"],
-        ["a) dog ✅", "b) runs", "c) fast", "d) The"],
-        ["a) sings ✅", "b) she", "c) song", "d) a"],
-        ["a) He ✅", "b) Him", "c) They", "d) Us"],
-        ["a) I play", "b) I am playing", "c) I played ✅", "d) I plays"],
-        ["a) The boy ran ✅", "b) Running fast", "c) Ran to the shop", "d) Boy ran"],
-        ["a) We is happy.", "b) We are happy. ✅", "c) Us is happy.", "d) We be happy."],
-        ["a) What time is it? ✅", "b) What time it is?", "c) What is time it?", "d) Time is what it?"],
-        ["a) I see a apple", "b) She has a dog ✅", "c) He got a ice cream", "d) It is a orange"],
-        ["a) He has an dog", "b) It is an apple ✅", "c) I ate an cake", "d) She saw an cat"]
+        ["I like apples. ✅", "Me like apples.", "I liking apples.", "Like I apples."],
+        ["She has a toy", "Do you want to play? ✅", "He likes dogs", "They go park"],
+        ["I am ✅", "I is", "Me are", "Me is"],
+        ["i go to school.", "I go to school. ✅", "i Go To School.", "I go to School."],
+        [". ✅", "!", "?", ","],
+        ["is ✅", "are", "am", "be"],
+        ["dog ✅", "runs", "fast", "The"],
+        ["sings ✅", "she", "song", "a"],
+        ["He ✅", "Him", "They", "Us"],
+        ["I play", "I am playing", "I played ✅", "I plays"],
+        ["The boy ran ✅", "Running fast", "Ran to the shop", "Boy ran"],
+        ["We is happy.", "We are happy. ✅", "Us is happy.", "We be happy."],
+        ["What time is it? ✅", "What time it is?", "What is time it?", "Time is what it?"],
+        ["I see a apple", "She has a dog ✅", "He got a ice cream", "It is a orange"],
+        ["He has an dog", "It is an apple ✅", "I ate an cake", "She saw an cat"]
     ],
     "answer": [1, 2, 1, 2, 1, 1, 1, 1, 1, 3, 1, 2, 1, 2, 2]
 }

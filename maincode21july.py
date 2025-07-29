@@ -800,11 +800,13 @@ class LevelQuiz:
 class MainQuiz:
     """Code for the main quiz that displays questions, options, and keeps track of progress."""
     
-    def __init__(self, root, quiz_data, user_info):
+    def __init__(self, root, quiz_data, user_info, quiz_topic, quiz_level):
         """Initialize the quiz window and display questions based on quiz_data."""
         self.root = root
         self.quiz_data = quiz_data  # Loaded quiz data (questions, options, answers)
         self.user_info = user_info
+        self.quiz_topic = quiz_topic
+        self.quiz_level = quiz_level
         self.q_no = 0  
         self.correct = 0  
         self.display_title() 
@@ -855,13 +857,13 @@ class MainQuiz:
 
         if self.q_no == self.data_size:
             self.update_progress_bar(final=True)  # Progress bar to 100%
-            self.root.after(100, self.display_result)  
+            self.root.after(100, self.display_results)  
         else:
             self.update_progress_bar()
             self.display_question()
             self.display_options()
 
-    def display_result(self):
+    def display_results(self):
         """Display the quiz result after the user finishes all questions."""
         wrong_count = self.data_size - self.correct
         correct = f"Correct: {self.correct}"
@@ -878,6 +880,8 @@ class MainQuiz:
         with open(f"{username}.txt", 'a') as data:
             data.write("\n\nQuiz Results \n")
             data.write(f"Date: {date}\n")
+            data.write(f"Quiz Area: {self.quiz_topic}\n")
+            data.write(f"Level: {self.quiz_level}\n")
             data.write(f"Correct: {self.correct}\n")
             data.write(f"Wrong: {wrong_count}\n")
             data.write(f"Score: {score}%\n")
@@ -1016,19 +1020,19 @@ class QuizSelect:
     def select_grammar(self):
         """The grammar quizzes - calls it."""
         chosen_level = self.level_var.get()
-        self.selected_quiz = f"level{chosen_level}grammar.json"
+        self.selected_quiz = f"level{chosen_level}Grammar.json"
         self.dialog.destroy()
 
     def select_spelling(self):
         """The spelling quizzes - calls it.."""
         chosen_level = self.level_var.get()
-        self.selected_quiz = f"level{chosen_level}spelling.json"
+        self.selected_quiz = f"level{chosen_level}Spelling.json"
         self.dialog.destroy()
 
     def select_vocab(self):
         """The vocab quizzes - calls it.."""
         chosen_level = self.level_var.get()
-        self.selected_quiz = f"level{chosen_level}vocab.json"
+        self.selected_quiz = f"level{chosen_level}Vocabulary.json"
         self.dialog.destroy()
 
     def get_selected_quiz(self):
@@ -1087,6 +1091,7 @@ class Slideshow:
             rb.pack(side=tk.LEFT, padx=5)
 
     def change_level(self):
+        """Lets the user to change between the different levels."""
         self.level = self.level_var.get()
         self.current_index = 0
         self.display_image()
@@ -1310,7 +1315,7 @@ class DashboardWindow:
         quiz_button.place(x=300, y=635)
 
     def open_quiz_window_message(self):
-        current_level = self.user_info.get("level", 1)  # default to level 1 if not set
+        current_level = self.user_info.get("level", 1)  # default level 1
         quiz_dialog = QuizSelect(self.dashboard_window, current_level)
         quiz_dialog.display_variable()
         self.dashboard_window.wait_window(quiz_dialog.dialog)
@@ -1320,22 +1325,41 @@ class DashboardWindow:
             try:
                 with open(selected_quiz) as f:
                     quiz_data = json.load(f)
+                # Save the selected quiz file path so open_quiz_window can use it
+                self.selected_quiz_path = selected_quiz  
                 self.open_quiz_window(quiz_data)
             except FileNotFoundError:
                 mb.showerror("Error", f"Quiz file {selected_quiz} not found.")
         else:
             mb.showwarning("No Selection", "No quiz selected. Please choose a quiz area.", parent=self.dashboard_window)
 
-    # Code to open the quiz window with the selected quiz data
+
     def open_quiz_window(self, quiz_data):
-        # Open the selected quiz window with the loaded quiz data.
+        # Extract quiz_level and quiz_topic from the saved quiz file path
+        import re
+        quiz_level = "Unknown"
+        quiz_topic = "Unknown"
+
+        # Example filename format: "level1grammar.json" or "level2spelling.json"
+        if hasattr(self, 'selected_quiz_path'):
+            filename = self.selected_quiz_path.lower()
+            match = re.search(r"level(\d)(grammar|spelling|vocab|vocabulary)", filename)
+            if match:
+                quiz_level = match.group(1)
+                quiz_topic = match.group(2)
+                # Normalize vocabulary naming if needed
+                if quiz_topic == "vocabulary":
+                    quiz_topic = "vocab"
+
+        # Now open the quiz window
         quiz_window = tk.Toplevel(self.master)
         quiz_window.title("Quiz")
         quiz_window.configure(bg="oldlace")
         quiz_window.resizable(False, False)
 
-        # Start the quiz with the loaded data
-        MainQuiz(quiz_window, quiz_data, self.user_info)
+        # Pass quiz_topic and quiz_level to MainQuiz
+        MainQuiz(quiz_window, quiz_data, self.user_info, quiz_topic, quiz_level)
+
     
     def open_learn_slideshow(self):
         image_directory = "images"  # Update this if your folder is elsewhere

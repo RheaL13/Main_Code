@@ -57,3 +57,57 @@ Date: 18/07/2025 12:13:00
 Correct: 5
 Wrong: 10
 Score: 33%
+
+
+Quiz Results 
+Date: 29/07/2025 21:16:49
+Quiz Area: grammar
+Level: 1
+Correct: 2
+Wrong: 13
+Score: 13%
+
+
+Quiz Results 
+Date: 29/07/2025 21:17:32
+Quiz Area: vocab
+Level: 3
+Correct: 4
+Wrong: 11
+Score: 26%
+
+
+Quiz Results 
+Date: 29/07/2025 21:31:14
+Quiz Area: grammar
+Level: 2
+Correct: 15
+Wrong: 0
+Score: 100%
+
+
+Quiz Results 
+Date: 29/07/2025 21:33:48
+Quiz Area: Unknown
+Level: Unknown
+Correct: 8
+Wrong: 7
+Score: 53%
+
+
+Quiz Results 
+Date: 29/07/2025 21:38:25
+Quiz Area: vocab
+Level: 1
+Correct: 0
+Wrong: 15
+Score: 0%
+
+
+Quiz Results 
+Date: 29/07/2025 21:39:06
+Quiz Area: spelling
+Level: 3
+Correct: 0
+Wrong: 15
+Score: 0%
