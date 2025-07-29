@@ -1,0 +1,37 @@
+{
+    "question": [
+        "What does 'big' mean?",
+        "What is a 'dog'?",
+        "Which word means 'cold food treat'?",
+        "What is the opposite of 'hot'?",
+        "Which of these is a colour?",
+        "What does 'fast' mean?",
+        "What is a 'bed' used for?",
+        "What is a 'book'?",
+        "Which is a body part?",
+        "Which word means 'happy'?",
+        "What do you do with a pencil?",
+        "What is a 'car'?",
+        "Which word means 'not clean'?",
+        "Which word means 'not old'?",
+        "What does 'jump' mean?"
+    ],
+    "options": [
+        ["a) small", "b) fast", "c) large ✅", "d) happy"],
+        ["a) animal ✅", "b) plant", "c) food", "d) toy"],
+        ["a) sandwich", "b) cake", "c) ice cream ✅", "d) pizza"],
+        ["a) cold ✅", "b) warm", "c) cool", "d) boil"],
+        ["a) run", "b) blue ✅", "c) soft", "d) big"],
+        ["a) slow", "b) quick ✅", "c) short", "d) long"],
+        ["a) eating", "b) sleeping ✅", "c) drawing", "d) cooking"],
+        ["a) toy", "b) food", "c) thing to read ✅", "d) shoes"],
+        ["a) sock", "b) foot ✅", "c) hat", "d) pants"],
+        ["a) sad", "b) angry", "c) glad ✅", "d) tired"],
+        ["a) eat", "b) draw ✅", "c) wash", "d) throw"],
+        ["a) fruit", "b) vehicle ✅", "c) pet", "d) house"],
+        ["a) dirty ✅", "b) fresh", "c) tidy", "d) soft"],
+        ["a) new ✅", "b) used", "c) ancient", "d) past"],
+        ["a) sit", "b) sleep", "c) hop ✅", "d) run"]
+    ],
+    "answer": [3, 1, 3, 1, 2, 2, 2, 3, 2, 3, 2, 2, 1, 1, 3]
+}

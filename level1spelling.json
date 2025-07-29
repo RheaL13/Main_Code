@@ -1,0 +1,37 @@
+{
+    "question": [
+        "Which word is spelled correctly?",
+        "Choose the correct spelling:",
+        "How do you spell the word for a red fruit?",
+        "Which of these is a real word?",
+        "Choose the correctly spelled word:",
+        "Which spelling is correct?",
+        "Which one is a word you can eat?",
+        "Choose the correct spelling for something you wear on your head:",
+        "Which of these is a farm animal?",
+        "Pick the right spelling:",
+        "Spell the word for a flying pet:",
+        "Which word is correct?",
+        "Choose the correct word for something you drink:",
+        "How do you spell the number after one?",
+        "Pick the correct word for a toy on wheels:"
+    ],
+    "options": [
+        ["a) kat", "b) cat ✅", "c) katte", "d) ct"],
+        ["a) dawg", "b) dog ✅", "c) dug", "d) dag"],
+        ["a) appl", "b) appel", "c) apple ✅", "d) apl"],
+        [" a) bloo", "b) blu", "c) blue ✅", "d) blou"],
+        ["a) sun ✅", "b) snun", "c) sunn", "d) suun"],
+        ["a) trane", "b) train ✅", "c) trayn", "d) tran"],
+        ["a) foad", "b) fude", "c) food ✅", "d) fuud"],
+        ["a) hat ✅", "b) het", "c) hatt", "d) haat"],
+        ["a) kow", "b) cow ✅", "c) cauw", "d) coww"],
+        ["a) beg", "b) baag", "c) bag ✅", "d) bug"],
+        ["a) burd", "b) berd", "c) bord", "d) bird ✅"],
+        ["a) sheep ✅", "b) shep", "c) shhep", "d) sheap"],
+        ["a) watter", "b) water ✅", "c) watir", "d) wotor"],
+        ["a) two ✅", "b) to", "c) too", "d) tow"],
+        ["a) truk", "b) truc", "c) trukk", "d) truck ✅"]
+    ],
+    "answer": [2, 2, 3, 3, 1, 2, 3, 1, 2, 3, 4, 1, 2, 1, 4]
+}

@@ -1,0 +1,37 @@
+{
+    "question": [
+        "Which word is spelled correctly?",
+        "Choose the correct spelling:",
+        "Which word means 'to believe something will happen'?",
+        "How do you spell the opposite of 'win'?",
+        "Pick the correct spelling for a container of water:",
+        "Which is a correct spelling of a day of the week?",
+        "Which word is spelled correctly?",
+        "Which word is spelled correctly?",
+        "How do you spell the word for when something is funny?",
+        "Choose the correctly spelled word:",
+        "Which word is correct?",
+        "Pick the correct spelling for an animal with fur:",
+        "Which spelling is correct?",
+        "How do you spell a word meaning 'very cold'?",
+        "Choose the correct spelling for something you read:"
+    ],
+    "options": [
+        ["a) beter", "b) better ✅", "c) betar", "d) bettar"],
+        ["a) skool", "b) school ✅", "c) schoool", "d) schoul"],
+        ["a) expeckt", "b) expect ✅", "c) expecktation", "d) expakt"],
+        ["a) loos", "b) lose ✅", "c) luze", "d) looz"],
+        ["a) bottel", "b) bottle ✅", "c) botal", "d) botle"],
+        ["a) Tusday", "b) Toosday", "c) Tuesday ✅", "d) Tuseday"],
+        ["a) diffrent", "b) different ✅", "c) diferent","d) defferent"],
+        ["a) familee", "b) family ✅", "c) familly", "d) fammily"],
+        ["a) humourous", "b) humorous ✅", "c) humerous", "d) humoros"],
+        ["a) probly", "b) probably ✅", "c) probbly", "d) probebly"],
+        ["a) became ✅", "b) becaim", "c) becaem", "d) becim"],
+        ["a) rabbet", "b) rabbit ✅", "c) rabbbit", "d) rabit"],
+        ["a) giraffe ✅", "b) giraff", "c) girafe", "d) jiraf"],
+        ["a) freezing ✅", "b) frezing", "c) freazing", "d) frezeing"],
+        ["a) magazine ✅", "b) magazin", "c) magasine", "d) magazeen"]
+    ],
+    "answer": [2, 2, 2, 2, 2, 3, 2, 2, 2, 2, 1, 2, 1, 1, 1]
+}

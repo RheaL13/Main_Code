@@ -1,0 +1,37 @@
+{
+    "question": [
+        "Which word is spelled correctly?",
+        "What is the plural of 'fox'?",
+        "Which sentence is correct?",
+        "What does the word 'tiny' mean?",
+        "Choose the word that rhymes with 'cake'",
+        "What is the opposite of 'happy'?",
+        "What word fits best? 'The cat sat ___ the mat.'",
+        "Which word is a noun?",
+        "Which sentence uses capital letters correctly?",
+        "Choose the correct past tense: 'What did she ___ yesterday?'",
+        "Choose the correct spelling:",
+        "Which word is an adjective?",
+        "What does 'gigantic' mean?",
+        "Which sentence is a question?",
+        "Choose the correct version of 'they're'"
+    ],
+    "options": [
+        ["a) frend", "b) fren", "✅ c) friend", "d) frand"],
+        ["a) foxes", "b) foxs", "✅ c) foxes", "d) foxess"],
+        ["a) She can goes fast.", "b) She going fast.", "✅ c) She goes fast.", "d) She go fast."],
+        ["a) loud", "b) fast", "✅ c) very small", "d) very bright"],
+        ["a) cook", "b) chalk", "✅ c) lake", "d) kick"],
+        ["a) tired", "✅ b) sad", "c) excited", "d) angry"],
+        ["a) on", "✅ b) on", "c) in", "d) under"],
+        ["a) quickly", "✅ b) apple", "c) red", "d) run"],
+        ["a) i like school.", "b) my name is jack.", "✅ c) My name is Jack.", "d) Today is monday."],
+        ["a) go", "✅ b) do", "c) does", "d) doing"],
+        ["a) becaus", "✅ b) because", "c) becuase", "d) becouse"],
+        ["a) jump", "✅ b) tall", "c) run", "d) dog"],
+        ["a) tricky", "b) bumpy", "✅ c) very big", "d) very fast"],
+        ["a) I like ice cream", "b) She has a bike", "✅ c) Do you like ice cream?", "d) We saw a dog"],
+        ["a) Their going to the beach.", "b) There going to the beach.", "✅ c) They're going to the beach.", "d) They going to the beach."]
+    ],
+    "answer": [3, 3, 3, 3, 3, 2, 2, 2, 3, 2, 2, 2, 3, 3, 3]
+}

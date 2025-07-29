@@ -1,0 +1,37 @@
+{
+    "question": [
+        "What does 'enormous' mean?",
+        "Which word means 'a place you live'?",
+        "What does 'brave' mean?",
+        "Which is a synonym for 'angry'",
+        "What does 'ancient' mean?",
+        "What is a 'journey'?",
+        "Which word means 'not possible'?",
+        "What is 'energy'?",
+        "Which is a noun?",
+        "What does 'generous' mean?",
+        "What is a synonym for 'fast'?",
+        "What does 'fragile' mean?",
+        "Which word means 'full of joy'?",
+        "Which word means the same as 'job'?",
+        "What is the opposite of 'start'?"
+    ],
+    "options": [
+        ["a) tiny", "b) huge ✅", "c) thin", "d) fast"],
+        ["a) school", "b) library", "c) home ✅", "d) bus"],
+        ["a) scared", "b) kind", "c) courageous ✅", "d) sad"],
+        ["a) happy", "b) furious ✅", "c) tired", "d) calm"],
+        ["a) new", "b) old ✅", "c) clean", "d) used"],
+        ["a) a job", "b) a story", "c) a trip ✅", "d) a toy"],
+        ["a) unlikely", "b) maybe", "c) impossible ✅", "d) rare"],
+        ["a) food", "b) movement", "c) power ✅", "d) rest"],
+        ["a) run", "b) quiet", "c) elephant ✅", "d) soft"],
+        ["a) giving ✅", "b) selfish", "c) funny", "d) mean"],
+        ["a) quick ✅", "b) slow", "c) tall", "d) bright"],
+        ["a) strong", "b) breakable ✅", "c) heavy", "d) hard"],
+        ["a) angry", "b) joyful ✅", "c) tired", "d) shy"],
+        ["a) work ✅", "b) run", "c) goal", "d) game"],
+        ["a) run", "b) stop", "c) finish ✅", "d) go"]
+    ],
+    "answer": [2, 3, 3, 2, 2, 3, 3, 3, 3, 1, 1, 2, 2, 1, 3]
+}

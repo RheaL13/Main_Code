@@ -1,0 +1,37 @@
+{
+    "question": [
+        "Choose the correct sentence:",
+        "Which word is a verb?",
+        "Which sentence uses the past tense?",
+        "Which is a proper noun?",
+        "Which sentence is a question?",
+        "What is the adjective in this sentence: 'The red ball bounced'?",
+        "What punctuation ends a question?",
+        "Choose the correct sentence:",
+        "CWhich word completes the sentence: 'The bird flew ___ the sky.'",
+        "What is the plural of 'child'?",
+        "Which sentence is correct?",
+        "Which word is an adverb?",
+        "What is the subject in: 'The cat sleeps.'",
+        "Which sentence uses commas correctly?",
+        "Choose the sentence with correct punctuation:"
+    ],
+    "options": [
+        ["a) He don't like cake.", "b) He doesn't like cake. ✅", "c) He don't likes cake.", "d) He not like cake."],
+        ["a) quick", "b) run ✅", "c) hat", "d) soft"],
+        ["a) She play", "b) She is playing", "c) She played ✅", "d) She plays"],
+        ["a) cat", "b) book", "c) Sarah ✅", "d) tree"],
+        ["a) He went home", "b) Do you have your bag? ✅", "c) She ran fast", "d) They are tired"],
+        ["a) ball", "b) red ✅", "c) bounced", "d) the"],
+        ["a) .", "b) !", "c) ? ✅", "d) ,"],
+        ["a) They was going.", "b) They were going. ✅", "c) They is going.", "d) They be going."],
+        ["a) in ✅", "b) at", "c) to", "d) into"],
+        ["a) childs", "b) children ✅", "c) childes", "d) childrens"],
+        ["a) I'm go to school.", "b) I am going to school. ✅", "c) I going to school.", "d) I am goes to school."],
+        ["a) slowly ✅", "b) run", "c) bike", "d) strong"],
+        ["a) sleeps", "b) cat ✅", "c) the", "d) none"],
+        ["a) I like apples bananas and grapes.", "b) I like apples, bananas, and grapes. ✅", "c) I like, apples bananas and grapes.", "d) I like apples bananas, and grapes."],
+        ["a) Lets go to the park.", "b) Let's go to the park! ✅", "c) Lets go to the park?", "d) Let's go, to the park."]
+    ],
+    "answer": [2, 2, 3, 3, 2, 2, 3, 2, 1, 2, 2, 1, 2, 2, 2]
+}
