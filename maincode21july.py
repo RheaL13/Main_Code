@@ -1405,12 +1405,11 @@ class DashboardWindow:
         def open_video1():
             """Opening the youtube link."""
             # URL of the YouTube video
-            video_url="https://www.youtube.com/watch?v=KLiXmteCvUI"
+            video_url="https://www.youtube.com/watch?v=r8OJuXRT9PE"
             webbrowser.open(video_url)
         
         # Label for video URL input
-        video_url_label=tk.Label(self.photos_window, text="Video About Our "+
-                                 "Obsession With Economic Growth:", 
+        video_url_label=tk.Label(self.photos_window, text="Video For A Quick Quiz:", 
                                  font=("Helvetica", 11, 'bold'), fg="black", 
                                  bg="oldlace")
         video_url_label.pack(pady=10)
@@ -1424,12 +1423,12 @@ class DashboardWindow:
         def open_video2():
             """Opening the youtube link."""
             # URL of the YouTube video
-            video_url="https://www.youtube.com/watch?v=MilcnqXKjR4&t=177s"
+            video_url="https://www.youtube.com/watch?v=Qz0LWrJDfx0"
             webbrowser.open(video_url)
         
         # Label for video URL input
-        video_url_label=tk.Label(self.photos_window, text="Video About How "+
-                                 "Consumerism Ruins Our Planet\nAnd Finances:", 
+        video_url_label=tk.Label(self.photos_window, text="Video About Syllables "+
+                                 "And Words:", 
                                  font=("Helvetica", 11, 'bold'), fg="black", 
                                  bg="oldlace")
         video_url_label.pack(pady=10)
@@ -1443,12 +1442,12 @@ class DashboardWindow:
         def open_video3():
             """Opening the youtube link."""
             # URL of the YouTube video
-            video_url="https://www.youtube.com/watch?v=8eoeB_Dxba8"
+            video_url="https://www.youtube.com/watch?v=BsQj1Q6Q5PA"
             webbrowser.open(video_url)
 
         # Label for video URL input
-        video_url_label=tk.Label(self.photos_window, text="Video About How "+
-                                 "Overconsumption\nThreatens Our Planet:", 
+        video_url_label=tk.Label(self.photos_window, text="Video To Exercise "+
+                                 "Your Spelling:", 
                                  font=("Helvetica", 11, 'bold'), fg="black", 
                                  bg="oldlace")
         video_url_label.pack(pady=10)
@@ -1462,13 +1461,12 @@ class DashboardWindow:
         def open_video4():
             """Opening the youtube link."""
             # URL of the YouTube video
-            video_url="https://www.youtube.com/watch?v=gDc6PB5iGjI"
+            video_url="https://www.youtube.com/watch?v=Yav8BcHk2D4"
             webbrowser.open(video_url)
         
         # Label for video URL input
         video_url_label=tk.Label(self.photos_window, text=" Video About "+
-                                  "Global Environmental\nImpacts Of "+
-                                  "Consumption:", 
+                                  "Reading Sentences:",
                                   font=("Helvetica", 11, 'bold'), fg="black", 
                                   bg="oldlace")
         video_url_label.pack(pady=10)
