@@ -479,13 +479,13 @@ class SignUpWindow:
 
         age = (datetime.today() - birthdate).days // 365
         if age < 0 or age > 90:
-            mb.showerror("Invalid Date Of Birth", "Please enter a realistic date of birth (age must be between 0–90).",
+            mb.showerror("Invalid Date Of Birth", "Please enter a realistic date of birth (age must be between 0-90).",
                         parent=self.signup_window)
             return False
 
         # Age warning if outside 5–15 range
         if age < 5 or age > 15:
-            age_maybe = mb.askquestion("Age Notice", f"Your age is {age}. This program is designed for ages 5–15. Continue anyway?",
+            age_maybe = mb.askquestion("Age Notice", f"Your age is {age}. This program is designed for ages 5-15. Continue anyway?",
                                     parent=self.signup_window)
             if age_maybe.lower() != "yes":
                 return False
@@ -1703,10 +1703,10 @@ class DashboardWindow:
             info_label.place(x=155, y=10)
 
             labels=["First Name:", "Username:", 
-                      "Date of Birth:", "Password:"]#, "Level:"]
+                      "Date of Birth:", "Password:"]
             values=[self.user_info['first_name'], self.user_info['username'], 
                     self.user_info['date_of_birth'], 
-                    self.user_info['password']]#, self.user_info['level']]
+                    self.user_info['password']]
 
             for i, (label_text, value_text) in enumerate(zip(labels, values)):
                 label=tk.Label(profile_frame, text=label_text, 
@@ -1748,6 +1748,10 @@ class DashboardWindow:
         scrollbar.place(x=607, y=322, height=278)
         self.text_widget.configure(yscrollcommand=scrollbar.set)
 
+        # Add a default message
+        self.text_widget.insert(tk.END, "Choose what data you would like to see, by clicking on the dropdown")
+        self.text_widget.config(state=tk.DISABLED)
+
     def show_selected_data(self):
         # Open the user's profile file
         file_path = f"{self.user_info['username']}.txt"
@@ -1786,7 +1790,6 @@ class DashboardWindow:
                 else:
                     # Show lines 19 onward (index 18 and onward)
                     content_to_display = ''.join(lines[18:]).strip()
-
 
             # Enable the Text widget for insertion
             self.text_widget.config(state=tk.NORMAL)
