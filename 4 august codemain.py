@@ -1533,7 +1533,7 @@ class DashboardWindow:
         image_label3.place(y=330, x=630)
 
         # Load and display image 4
-        image_path4="learnpic1.png"
+        image_path4="learnpic1.jpg"
         image4=Image.open(image_path4)
         resize_image4=image4.resize((350, 250))
         img4=ImageTk.PhotoImage(resize_image4)
@@ -1568,7 +1568,7 @@ class DashboardWindow:
         self.configfile.tag_configure("bold", font=("Helvetica", 13, "bold"))
 
         # Open and read the file
-        filename="aboutpagetext"
+        filename="aboutpagetext.txt"
         try:
             with open(filename, 'r') as f:
                 content=f.read()
@@ -1593,13 +1593,16 @@ class DashboardWindow:
 
         # Load and display image
         image_path="aboutus.png"
-        image=Image.open(image_path)
-        resize_image=image.resize((700, 300))
-        img=ImageTk.PhotoImage(resize_image)
+        try:
+            image=Image.open(image_path)
+            resize_image=image.resize((700, 300))
+            img=ImageTk.PhotoImage(resize_image)
 
-        image_label=tk.Label(self.main_frame, image=img)
-        image_label.image=img  
-        image_label.place(x=30, y=370)
+            image_label=tk.Label(self.main_frame, image=img)
+            image_label.image=img  
+            image_label.place(x=30, y=370)
+        except FileNotFoundError:
+            messagebox.showerror("Image Error", f"Could not find '{image_path}'")
 
     # The Home page of the Dashboard Window
     def display_help(self):
@@ -1629,7 +1632,7 @@ class DashboardWindow:
         self.configfile.tag_configure("bold", font=("Helvetica", 13, "bold"))
 
         # Open and read the file
-        filename="helppagetext"
+        filename="helppagetext.txt"
         try:
             with open(filename, 'r') as f:
                 content=f.read()
@@ -1669,13 +1672,16 @@ class DashboardWindow:
 
         # Load and display image
         image_path="helppagepic.jpg"
-        image=Image.open(image_path)
-        resize_image=image.resize((700, 300))
-        img=ImageTk.PhotoImage(resize_image)
+        try:
+            image=Image.open(image_path)
+            resize_image=image.resize((700, 300))
+            img=ImageTk.PhotoImage(resize_image)
 
-        image_label=tk.Label(self.main_frame, image=img)
-        image_label.image=img 
-        image_label.place(x=30, y=370)
+            image_label=tk.Label(self.main_frame, image=img)
+            image_label.image=img 
+            image_label.place(x=30, y=370)
+        except FileNotFoundError:
+            messagebox.showerror("Image Error", f"Could not find '{image_path}'")
 
     def display_profile(self):
         """Display the profile page with a dropdown for data selection."""
