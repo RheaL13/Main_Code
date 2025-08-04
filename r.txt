@@ -111,3 +111,12 @@ Level: 3
 Correct: 0
 Wrong: 15
 Score: 0%
+
+
+Quiz Results 
+Date: 04/08/2025 09:36:34
+Quiz Area: spelling
+Level: 2
+Correct: 3
+Wrong: 12
+Score: 20%

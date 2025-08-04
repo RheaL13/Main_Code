@@ -1081,10 +1081,10 @@ class Slideshow:
         level_frame = tk.Frame(self.top, bg="white")
         level_frame.pack(pady=10)
 
-        tk.Label(level_frame, text="Select Level:", font=("Helvetica", 12, "bold"), bg="black").pack(side=tk.LEFT)
+        tk.Label(level_frame, text="Select Level:", font=("Helvetica", 12, "bold"), bg="white").pack(side=tk.LEFT)
         for lvl in ['1', '2', '3']:
             rb = tk.Radiobutton(level_frame, text=f"Level {lvl}", variable=self.level_var, value=lvl,
-                                command=self.change_level, bg="black", font=("Helvetica", 12))
+                                command=self.change_level, bg="white", font=("Helvetica", 12))
             rb.pack(side=tk.LEFT, padx=5)
 
     def change_level(self):
@@ -1736,17 +1736,18 @@ class DashboardWindow:
         # Create a Text widget to display the selected file contents
         self.text_widget = tk.Text(self.main_frame, wrap="word", 
                                    font=("Helvetica", 13, "bold"), bg="oldlace", 
-                                   bd=0, fg="black", width=60, height=17)
+                                   bd=0, fg="black", width=60, height=17, highlightthickness=2,
+                                   highlightbackground="black", relief="solid") # Creates a solid line border
         self.text_widget.place(x=140, y=320, width=485, height=280)
 
         # Add a scrollbar to the canvas
         scrollbar=ttk.Scrollbar(self.main_frame, orient=tk.VERTICAL, 
                                 command=self.text_widget.yview)
-        scrollbar.place(x=607, y=322, height=278)
+        scrollbar.place(x=606, y=322, height=276)
         self.text_widget.configure(yscrollcommand=scrollbar.set)
 
         # Add a default message
-        self.text_widget.insert(tk.END, "Choose what data you would like to see, by clicking on the dropdown")
+        self.text_widget.insert(tk.END, "Choose what data you would like to see, by clicking on the dropdown above.")
         self.text_widget.config(state=tk.DISABLED)
 
     def show_selected_data(self):
