@@ -1,0 +1,31 @@
+FAQ about the program:
+Question: What is the primary goal of Page By Page?
+Answer: The primary goal of Page By Page is to help tamariki and rangatahi (ages 5–15) in Aotearoa strengthen their reading and writing skills through fun, engaging, and accessible literacy activities. We aim to build confidence and empower young learners to succeed in school and beyond.
+
+Question: What are the key features of Page By Page?
+Answer: Page By Page offers interactive literacy quizzes, a space for independent learning, progress tracking, and age-appropriate tools to help learners grow at their own pace.
+
+Question: Who is the target audience for Page By Page?
+Answer: Page By Page is designed for children aged 5–15, especially those in New Zealand who are looking to build or boost their literacy skills in a safe, motivating, and learner-friendly space.
+
+Question: What makes Page By Page different from other literacy tools?
+Answer: Page By Page combines fun, personalised learning with a focus on real impact. It allows students to learn at their own level, celebrate progress through rewards, and access tools that support reading and writing in a meaningful, encouraging way.
+
+FAQ about how to use the program:
+Question: How do I start the quiz?
+Answer: To begin a quiz, click on the “QUIZ” button in the sidebar. You’ll be able to choose from a range of quizzes that focus on grammar, vocabulary, and reading comprehension.
+
+Question: How do you navigate to the Quiz section from the Home Page?
+Answer: To navigate to the Quiz section, click on the "QUIZ" button in the sidebar on the left side of the Home Page or any other page.
+
+Question: What is the 'Independent Learning' space?
+Answer: The independent learning space allows students to work at a level that suits them—whether they’re just starting out or ready for more advanced tasks. It encourages learners to build skills at their own pace without pressure.
+
+Question: How do I view my profile information?
+Answer: To see your name, username, and birthdate, click the “PROFILE” button at the top right corner of the Home Page. This lets you keep track of your details.
+
+Question: How can you exit the program and when?
+Answer: To exit the program, click on the "EXIT" button on the top right corner of the Home Page. A confirmation dialog will appear; click "Yes" to exit or "No" to return to the program. But do so anytime other than when you are doing the quiz, otherwise your progress will not be saved. 
+
+Question: Where can you learn more about the program's goals and objectives?
+Answer: You can learn more about the program's goals and objectives in the "ABOUT" section accessible from the sidebar on the Home Page.

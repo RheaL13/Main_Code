@@ -17,21 +17,21 @@
         "Choose the correct version of 'they're'"
     ],
     "options": [
-        ["a) frend", "b) fren", "✅ c) friend", "d) frand"],
-        ["a) foxes", "b) foxs", "✅ c) foxes", "d) foxess"],
-        ["a) She can goes fast.", "b) She going fast.", "✅ c) She goes fast.", "d) She go fast."],
-        ["a) loud", "b) fast", "✅ c) very small", "d) very bright"],
-        ["a) cook", "b) chalk", "✅ c) lake", "d) kick"],
-        ["a) tired", "✅ b) sad", "c) excited", "d) angry"],
-        ["a) on", "✅ b) on", "c) in", "d) under"],
-        ["a) quickly", "✅ b) apple", "c) red", "d) run"],
-        ["a) i like school.", "b) my name is jack.", "✅ c) My name is Jack.", "d) Today is monday."],
-        ["a) go", "✅ b) do", "c) does", "d) doing"],
-        ["a) becaus", "✅ b) because", "c) becuase", "d) becouse"],
-        ["a) jump", "✅ b) tall", "c) run", "d) dog"],
-        ["a) tricky", "b) bumpy", "✅ c) very big", "d) very fast"],
-        ["a) I like ice cream", "b) She has a bike", "✅ c) Do you like ice cream?", "d) We saw a dog"],
-        ["a) Their going to the beach.", "b) There going to the beach.", "✅ c) They're going to the beach.", "d) They going to the beach."]
+        ["frend", "fren", "friend", "frand"],
+        ["foxes", "foxs", "foxes", "foxess"],
+        ["She can goes fast.", "She going fast.", "She goes fast.", "She go fast."],
+        ["loud", "fast", "very small", "very bright"],
+        ["cook", "chalk", "lake", "kick"],
+        ["tired", "sad", "excited", "angry"],
+        ["on", "on", "in", "under"],
+        ["quickly", "apple", "red", "run"],
+        ["i like school.", "my name is jack.", "My name is Jack.", "Today is monday."],
+        ["go", "do", "does", "doing"],
+        ["becaus", "because", "becuase", "becouse"],
+        ["jump", "tall", "run", "dog"],
+        ["tricky", "bumpy", "very big", "very fast"],
+        ["I like ice cream", "She has a bike", "Do you like ice cream?", "We saw a dog"],
+        ["Their going to the beach.", "There going to the beach.", "They're going to the beach.", "They going to the beach."]
     ],
     "answer": [3, 3, 3, 3, 3, 2, 2, 2, 3, 2, 2, 2, 3, 3, 3]
 }

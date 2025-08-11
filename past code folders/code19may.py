@@ -571,19 +571,19 @@ class QuestionWindow:
         for word in word_list:
             self.word_vars[word] = tk.BooleanVar()
             cb = tk.Checkbutton(self.window, text=word, variable=self.word_vars[word], bg="oldlace", font=("Helvetica", 11, "bold"))
-            cb.pack(anchor="c")
+            cb.pack(anchor="sw")
 
         self.check_button = tk.Button(self.window, text="Next", bg="white", width=7, 
                                 font=("Helvetica", 13, "bold"), 
                                 fg="green", command=self.finish)
         self.check_button.pack()
 
-        title1=tk.Label(self.window, text="\nThere will be a short quiz that will see what "+
-                                    "level you are at, when\n you click next. Try "+
-                                    "your best :)", 
-                                font=("Helvetica", 12, "bold"), 
-                                fg="black", bg="oldlace")
-        title1.pack(pady=1)
+        # title1=tk.Label(self.window, text="\nThere will be a short quiz that will see what "+
+        #                             "level you are at, when\n you click next. Try "+
+        #                             "your best :)", 
+        #                         font=("Helvetica", 12, "bold"), 
+        #                         fg="black", bg="oldlace")
+        # title1.pack(pady=1)
 
     def finish(self):
         checked_words = [word for word, var in self.word_vars.items() if var.get()]

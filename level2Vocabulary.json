@@ -17,21 +17,21 @@
         "What is the opposite of 'start'?"
     ],
     "options": [
-        ["tiny", "huge ✅", "thin", "fast"],
-        ["school", "library", "home ✅", "bus"],
-        ["scared", "kind", "courageous ✅", "sad"],
-        ["happy", "furious ✅", "tired", "calm"],
-        ["new", "old ✅", "clean", "used"],
-        ["a job", "a story", "a trip ✅", "a toy"],
-        ["unlikely", "maybe", "impossible ✅", "rare"],
-        ["food", "movement", "power ✅", "rest"],
-        ["run", "quiet", "elephant ✅", "soft"],
-        ["giving ✅", "selfish", "funny", "mean"],
-        ["quick ✅", "slow", "tall", "bright"],
-        ["strong", "breakable ✅", "heavy", "hard"],
-        ["angry", "joyful ✅", "tired", "shy"],
-        ["work ✅", "run", "goal", "game"],
-        ["run", "stop", "finish ✅", "go"]
+        ["tiny", "huge ", "thin", "fast"],
+        ["school", "library", "home ", "bus"],
+        ["scared", "kind", "courageous ", "sad"],
+        ["happy", "furious ", "tired", "calm"],
+        ["new", "old ", "clean", "used"],
+        ["a job", "a story", "a trip ", "a toy"],
+        ["unlikely", "maybe", "impossible ", "rare"],
+        ["food", "movement", "power ", "rest"],
+        ["run", "quiet", "elephant ", "soft"],
+        ["giving ", "selfish", "funny", "mean"],
+        ["quick ", "slow", "tall", "bright"],
+        ["strong", "breakable ", "heavy", "hard"],
+        ["angry", "joyful ", "tired", "shy"],
+        ["work ", "run", "goal", "game"],
+        ["run", "stop", "finish ", "go"]
     ],
     "answer": [2, 3, 3, 2, 2, 3, 3, 3, 3, 1, 1, 2, 2, 1, 3]
 }

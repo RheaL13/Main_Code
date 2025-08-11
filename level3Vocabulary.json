@@ -17,21 +17,21 @@
         "What does 'respectful' mean?"
     ],
     "options": [
-        ["eager","unwilling ✅","excited", "certain"],
-        ["above", "on", "under ✅", "behind"],
-        ["estimate", "predict", "assume ✅", "suppose"],
-        ["joyful ✅", "tired", "serious", "shy"],
-        ["rare", "occasional", "often ✅", "never"],
-        ["weak ✅", "firm", "tough", "solid"],
-        ["a joke", "an argument with reasons ✅", "a quiz", "a celebration"],
-        ["stay the same", "move away", "change to fit ✅", "copy"],
-        ["careful ✅", "quick", "loud", "lazy"],
-        ["furious ✅", "cheerful", "tired", "brave"],
-        ["to not agree ✅", "to argue", "to approve", "to run away"],
-        ["hide", "run", "name something ✅", "look at"],
-        ["victory", "lose ✅", "success", "gain"],
-        ["to leave out", "to add in ✅", "to guess", "to speak"],
-        ["mean", "kind and polite ✅", "quiet", "angry"]
+        ["eager","unwilling ","excited", "certain"],
+        ["above", "on", "under ", "behind"],
+        ["estimate", "predict", "assume ", "suppose"],
+        ["joyful ", "tired", "serious", "shy"],
+        ["rare", "occasional", "often ", "never"],
+        ["weak ", "firm", "tough", "solid"],
+        ["a joke", "an argument with reasons ", "a quiz", "a celebration"],
+        ["stay the same", "move away", "change to fit ", "copy"],
+        ["careful ", "quick", "loud", "lazy"],
+        ["furious ", "cheerful", "tired", "brave"],
+        ["to not agree ", "to argue", "to approve", "to run away"],
+        ["hide", "run", "name something ", "look at"],
+        ["victory", "lose ", "success", "gain"],
+        ["to leave out", "to add in ", "to guess", "to speak"],
+        ["mean", "kind and polite ", "quiet", "angry"]
     ],
     "answer": [2, 3, 3, 1, 3, 1, 2, 3, 1, 1, 1, 3, 2, 2, 2]
 }

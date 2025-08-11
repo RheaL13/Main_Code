@@ -17,21 +17,21 @@
         "Which sentence uses quotation marks correctly?"
     ],
     "options": [
-        ["I like apples. ✅", "Me like apples.", "I liking apples.", "Like I apples."],
-        ["Jumping high.", "The dog barked loudly. ✅", "Running through the park.", "Went to school."],
-        ["quickly", "ran ✅", "he", "home"],
-        ["She ran and jumped.", "I went to the shop, and I bought bread. ✅", "He eats apples.", "The sky is blue."],
-        ["I went to the zoo.", "I am going to the zoo.", "I will go to the zoo. ✅", "I go to the zoo."],
-        ["verb", "noun", "adjective ✅", "adverb"],
-        ["Can we go to the park", "Can we go to the park.", "Can we go to the park? ✅", "Can we go to the park!"],
-        ["under ✅", "quick", "apple", "ran"],
-        ["mouses", "mice ✅", "mouse", "mices"],
-        ["Its raining outside.", "It's raining outside. ✅", "Its' raining outside.", "Its raining' outside."],
-        ["man", "tall", "smiled", "The tall man ✅"],
-        ["and ✅", "run", "blue", "house"],
-        ["is", "are ✅", "am", "be"],
-        ["She", "kicked", "ball ✅", "the"],
-        ["She said, 'Let's go.' ✅", "'She said, Let's go.'", "She said, Let's go.''", "''She said, Let's go."]
+        ["I like apples. ", "Me like apples.", "I liking apples.", "Like I apples."],
+        ["Jumping high.", "The dog barked loudly. ", "Running through the park.", "Went to school."],
+        ["quickly", "ran ", "he", "home"],
+        ["She ran and jumped.", "I went to the shop, and I bought bread. ", "He eats apples.", "The sky is blue."],
+        ["I went to the zoo.", "I am going to the zoo.", "I will go to the zoo. ", "I go to the zoo."],
+        ["verb", "noun", "adjective ", "adverb"],
+        ["Can we go to the park", "Can we go to the park.", "Can we go to the park? ", "Can we go to the park!"],
+        ["under ", "quick", "apple", "ran"],
+        ["mouses", "mice ", "mouse", "mices"],
+        ["Its raining outside.", "It's raining outside. ", "Its' raining outside.", "Its raining' outside."],
+        ["man", "tall", "smiled", "The tall man "],
+        ["and ", "run", "blue", "house"],
+        ["is", "are ", "am", "be"],
+        ["She", "kicked", "ball ", "the"],
+        ["She said, 'Let's go.' ", "'She said, Let's go.'", "She said, Let's go.''", "''She said, Let's go."]
     ],
     "answer": [1, 2, 2, 2, 3, 3, 3, 1, 2, 2, 4, 1, 2, 3, 1]
 }

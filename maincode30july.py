@@ -1568,7 +1568,7 @@ class DashboardWindow:
         self.configfile.tag_configure("bold", font=("Helvetica", 13, "bold"))
 
         # Open and read the file
-        filename="aboutpagetext"
+        filename="aboutpagetext.txt"
         try:
             with open(filename, 'r') as f:
                 content=f.read()

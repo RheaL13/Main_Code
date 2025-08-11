@@ -1,3 +1,6 @@
+"""Author: Rhea Lal, Date: 2/5/24 - 15/8/24, Purpose: A GUI program that tests 
+and teaches users (aged 5-15) on 3 different areas of literacy.
+"""
 # Importing all the modules for the program
 """Provides functions for creating and removing a directory / folder."""
 import os
@@ -30,17 +33,17 @@ from PIL import Image
 from PIL import ImageTk
 """import json to use json file for data"""
 import json
-
+"""..."""
 import tkinter.simpledialog as sd
-
+"""..."""
 from tkinter import messagebox
+"""..."""
 from PIL import Image, ImageTk
-
 
 
 # The Main Window (the first one users will see)
 class MainWindow:
-    """Main window code."""
+    """Main window code - the first window shown."""
     def __init__(self, master):
         """Basic code for the display of the window."""
         self.master=master
@@ -183,6 +186,7 @@ class LoginWindow:
         self.login_window.title("Login Window")
         self.login_window.configure(bg="oldlace")
         self.login_window.resizable(False, False)
+        self.login_window.grab_set()
 
         # Calculate center position
         w_w=600  # Window width
@@ -314,6 +318,7 @@ class SignUpWindow:
         self.signup_window.title("Signup Window")
         self.signup_window.configure(bg="oldlace")
         self.signup_window.resizable(False, False)
+        self.signup_window.grab_set()
 
         # Calculate center position
         w_w=600  # Window width
@@ -446,32 +451,35 @@ class SignUpWindow:
 
         # Length limits
         if len(first_name) > 10 or len(username) > 10 or len(password) > 10:
-            mb.showwarning("Invalid Input", "First name, username, and password must be 10 characters or less.", 
-                        parent=self.signup_window)
+            mb.showwarning("Invalid Input", "First name, username, and "+
+                           "password must be 10 characters or less.", 
+                           parent=self.signup_window)
             return False
 
         # Only letters in first name
         if not first_name.isalpha():
-            mb.showwarning("Invalid First Name", "First name can only contain letters.",
-                        parent=self.signup_window)
+            mb.showwarning("Invalid First Name", "First name can only contain"+
+                           " letters.", parent=self.signup_window)
             return False
 
         # Username: letters and numbers only
         if not re.match("^[A-Za-z0-9]+$", username):
-            mb.showwarning("Invalid Username", "Username can only contain letters and numbers (no spaces).",
-                        parent=self.signup_window)
+            mb.showwarning("Invalid Username", "Username can only contain "+
+                           "letters and numbers (no spaces).", 
+                           parent=self.signup_window)
             return False
 
         # Passwords match
         if password != confirm_password:
-            mb.showerror("Error", "Passwords do not match.", parent=self.signup_window)
+            mb.showerror("Error", "Passwords do not match.", 
+                         parent=self.signup_window)
             return False
 
         # Validate date format and calculate age
         birthdate = self.validate_date_of_birth(date_of_birth)
         if not birthdate:
             mb.showerror("Invalid Date Of Birth", "Please enter a valid date of birth using format DD/MM/YYYY.",
-                        parent=self.signup_window)
+                         parent=self.signup_window)
             return False
 
         age = (datetime.today() - birthdate).days // 365
@@ -540,6 +548,7 @@ class SignUpWindow:
 class QuestionWindow:
     """The Question Window that appears after sign up."""
     def __init__(self, parent, word_list, signup_window, user_info):
+        """Basic code for the display of the question window."""
         self.signup_window = signup_window  # The signup window reference
         self.parent = parent  # MainWindow object passed here
         self.user_info = user_info  # Store the user_info passed from MainWindow
@@ -547,7 +556,7 @@ class QuestionWindow:
         self.window.title("Question Window")
         self.window.configure(bg="oldlace")
         self.window.resizable(False, False)
-        #self.opt_selected = IntVar()
+        self.window.grab_set()
 
         # Calculate center position
         w_w=600  # Window width
@@ -617,6 +626,7 @@ class QuestionWindow:
         LevelQuiz(levelquizwindow, self.user_info)  # Now this works correctly, passing user_info
 
     def finish(self):  # Here is your finish method
+        """The code for when they are finished clicking and reading on the question window."""
         checked_words = [word for word, var in self.word_vars.items() if var.get()]
 
         # Check if no areas are selected
@@ -629,8 +639,6 @@ class QuestionWindow:
         with open(f"{username}.txt", 'a') as data:
             data.write("\nLiteracy Area: \n")
             data.write(f"{checked_words}\n")
-
-        print("Checked words:", checked_words)
 
         # Close both SignUpWindow and QuestionWindow
         self.signup_window.destroy()
@@ -645,6 +653,7 @@ class QuestionWindow:
 class LevelQuiz:
     """Code for the window of the level quiz."""
     def __init__(self, root, user_info):
+        """Basic code for the display of the level quiz."""
         self.root = root
         self.root.configure(bg="oldlace")
         self.q_no = 0
@@ -796,7 +805,6 @@ class LevelQuiz:
 # All the code for the Main Quiz
 class MainQuiz:
     """Code for the main quiz that displays questions, options, and keeps track of progress."""
-    
     def __init__(self, root, quiz_data, user_info, quiz_topic, quiz_level):
         """Initialize the quiz window and display questions based on quiz_data."""
         self.root = root
@@ -966,6 +974,7 @@ class QuizSelect:
         self.dialog.resizable(False, False)
         self.level_number = current_level  # User's current level
         self.selected_quiz = None
+        self.dialog.grab_set()
 
         # Center the window on screen
         w_w, w_h = 400, 350
@@ -1043,6 +1052,7 @@ class Slideshow:
         """Function to get the different images from the folder, and the looks."""
         self.top = tk.Toplevel(parent)
         self.top.title("Literacy Learning Slideshow")
+        self.top.grab_set()
 
         self.image_dir = image_dir
         self.images_by_level = {'1': [], '2': [], '3': []}
@@ -1133,6 +1143,7 @@ class DashboardWindow:
         self.dashboard_window.title("Dashboard")
         self.dashboard_window.configure(bg="oldlace")
         self.dashboard_window.resizable(False, False)
+        self.dashboard_window.grab_set()
 
         # Calculate center position
         w_w=1200  # Window width
@@ -1217,7 +1228,7 @@ class DashboardWindow:
         everytime another tab is pressed (sidebar buttons - tabs).
         """
         self.main_frame=tk.Frame(self.dashboard_window, bg="oldlace")
-        self.main_frame.place(x=250, y=50, width=900, height=700)
+        self.main_frame.place(x=250, y=55, width=900, height=700)
 
     def clear_main_area(self):
         """Clearing the specified area for the tabs."""
@@ -1243,17 +1254,17 @@ class DashboardWindow:
                        "to navigate through the program.", 
                        font=("Helvetica", 14),
                        fg="lightseagreen", bg="oldlace")
-        label.place(x=10, y=60)
+        label.place(x=58, y=60)
 
         # Load and display image
         home_image_path="imagehome.jpg"
         home_image=Image.open(home_image_path)
-        resize_image=home_image.resize((700, 530))
+        resize_image=home_image.resize((730, 460))
         self.home_img=ImageTk.PhotoImage(resize_image)
 
         home_image_label=tk.Label(self.main_frame, image=self.home_img)
         home_image_label.image=self.home_img  
-        home_image_label.place(y=130, x=0)
+        home_image_label.place(y=170, x=0)
 
     # The Home page of the Dashboard Window
     def display_manual(self):
@@ -1285,14 +1296,14 @@ class DashboardWindow:
         title_label = tk.Label(self.main_frame, text="Quiz Page", 
                                font=("Helvetica", 30), fg="black", 
                                bg="oldlace")
-        title_label.place(x=249, y=5)
+        title_label.place(x=253, y=5)
 
         label = tk.Label(self.main_frame, text="Welcome to the Quiz Page\nTo" +
                          " take the quiz, press the quiz button below.\n" +
                          "Then go onto the Learn tab to teach yourself " +
-                         "more, to do better in the quiz, next time.",
+                         "more,\nto do better in the quiz, next time.",
                          font=("Helvetica", 15), fg="lightseagreen", bg="oldlace")
-        label.place(x=0, y=80)
+        label.place(x=120, y=80)
 
         # Load and display image
         image_path = "quizpageimage.jpg"
@@ -1302,16 +1313,17 @@ class DashboardWindow:
 
         image_label = tk.Label(self.main_frame, image=img)
         image_label.image = img  
-        image_label.place(y=200, x=0)
+        image_label.place(y=200, x=-10)
 
         # Quiz button
         quiz_button = tk.Button(self.main_frame, text='QUIZ', width=10, 
-                                height=2, font=("Helvetica", 10, "bold"), 
+                                height=2, font=("Helvetica", 12, "bold"), 
                                 fg="lightseagreen", bg="white", 
                                 command=self.open_quiz_window_message)
-        quiz_button.place(x=300, y=635)
-
+        quiz_button.place(x=300, y=600)
+        
     def open_quiz_window_message(self):
+        """The code to give a message box error message about the quiz they have selected."""
         current_level = self.user_info.get("level", 1)  # default level 1
         quiz_dialog = QuizSelect(self.dashboard_window, current_level)
         quiz_dialog.display_variable()
@@ -1332,6 +1344,7 @@ class DashboardWindow:
 
 
     def open_quiz_window(self, quiz_data):
+        """The code to open the quiz selected."""
         # Extract quiz_level and quiz_topic from the saved quiz file path
         import re
         quiz_level = "Unknown"
@@ -1353,12 +1366,13 @@ class DashboardWindow:
         quiz_window.title("Quiz")
         quiz_window.configure(bg="oldlace")
         quiz_window.resizable(False, False)
+        quiz_window.grab_set()
 
         # Pass quiz_topic and quiz_level to MainQuiz
         MainQuiz(quiz_window, quiz_data, self.user_info, quiz_topic, quiz_level)
-
     
     def open_learn_slideshow(self):
+        """The code to open the slideshow class and the images in the images folder."""
         image_directory = "images"  # Update this if your folder is elsewhere
         Slideshow(self.main_frame, image_directory)
 
@@ -1369,7 +1383,7 @@ class DashboardWindow:
 
         title2=tk.Label(self.main_frame, text="Learn", 
                           font=("Helvetica", 30), fg="black", bg="oldlace")
-        title2.place(x=230, y=5)
+        title2.place(x=295, y=5)
 
         # Load and display image
         image_path="learnpage.jpg"
@@ -1379,31 +1393,34 @@ class DashboardWindow:
 
         image_label=tk.Label(self.main_frame, image=img)
         image_label.image=img  
-        image_label.place(x=30, y=320)
+        image_label.place(x=15, y=300)
 
         text_for_button = tk.Label(self.main_frame, 
-                                   text = "Click the button to learn in your chosen level and literacy area",
-                                   font = ("Helvetica", 15), fg = "black", bg = "oldlace")
-        text_for_button.place(x=200, y=100)
+                                   text = "Click the button below to learn in your chosen level and literacy area.\n\n\n\n" +
+                                   "Click below to watch some videos for some extra help.",
+                                   font = ("Helvetica", 15), fg = "lightseagreen", bg = "oldlace")
+        text_for_button.place(x=75, y=100)
 
-        slideshow_button = tk.Button(self.main_frame, text = "Click here",
+        slideshow_button = tk.Button(self.main_frame, text = "LEARN", height=2, width=11,
+                                     bg="white", fg="lightseagreen", font=("Helvetica", 12, "bold"),
                                      command = self.open_learn_slideshow)
-        slideshow_button.place(x=290, y=150)
+        slideshow_button.place(x=285, y=135)
 
         # Add the Photos / Videos button
-        photos_button=tk.Button(self.main_frame, text="MORE INFORMATION", 
-                                bg="white", font=("Helvetica", 13, "bold"), 
+        photos_button=tk.Button(self.main_frame, text="MORE INFORMATION", height=2, width=20,
+                                fg="lightseagreen", bg="white", font=("Helvetica", 12, "bold"), 
                                 command=self.open_photos_window)
-        photos_button.place(x=240, y=200)
+        photos_button.place(x=240, y=225)
 
     def open_photos_window(self):
         """Window where there are videos and pictures that are eductational
         and fun for the topics. 
         """
         self.photos_window=tk.Toplevel(self.master)
-        self.photos_window.title("Photo / Videos / Animations?")
+        self.photos_window.title("More Information For Learning")
         self.photos_window.configure(bg="oldlace")
         self.photos_window.resizable(False, False)
+        self.photos_window.grab_set()
 
         # Calculate center position
         w_w=1000  # Window width
@@ -1549,7 +1566,7 @@ class DashboardWindow:
 
         title2=tk.Label(self.main_frame, text="About", 
                           font=("Helvetica", 30), fg="black", bg="oldlace")
-        title2.place(x=230, y=5)
+        title2.place(x=290, y=5)
 
         # Create a Text widget to display file contents
         self.configfile=Text(self.main_frame, wrap="word", bd=0, 
@@ -1560,7 +1577,7 @@ class DashboardWindow:
         # Add a scrollbar to the canvas
         scrollbar=ttk.Scrollbar(self.main_frame, orient=tk.VERTICAL, 
                                 command=self.configfile.yview)
-        scrollbar.place(x=762, y=100, height=250)
+        scrollbar.place(x=768, y=100, height=250)
         self.configfile.configure(yscrollcommand=scrollbar.set)
 
         # Define tags for the font color and bold text
@@ -1613,7 +1630,7 @@ class DashboardWindow:
 
         title2=tk.Label(self.main_frame, text="Help", 
                           font=("Helvetica", 30), fg="black", bg="oldlace")
-        title2.place(x=230, y=5)
+        title2.place(x=305, y=5)
 
         # Create a Text widget to display file contents
         self.configfile=Text(self.main_frame, wrap="word", bd=0, 
@@ -1624,7 +1641,7 @@ class DashboardWindow:
         # Add a scrollbar to the canvas
         scrollbar=ttk.Scrollbar(self.main_frame, orient=tk.VERTICAL, 
                                 command=self.configfile.yview)
-        scrollbar.place(x=762, y=100, height=250)
+        scrollbar.place(x=775, y=100, height=250)
         self.configfile.configure(yscrollcommand=scrollbar.set)
 
         # Define tags for the font color and bold text
@@ -1661,6 +1678,7 @@ class DashboardWindow:
                 self.configfile.tag_add("bold", "28.0", "28.7")
                 self.configfile.tag_add("bold", "30.0", "30.9")
                 self.configfile.tag_add("bold", "31.0", "31.7")
+                self.configfile.tag_add("bold", "33.0", "33.end")
 
                 # Apply custom color to the entire content
                 self.configfile.tag_add("custom_color", "1.0", "end")
@@ -1735,8 +1753,8 @@ class DashboardWindow:
         self.data_selection.place(x=140, y=280)
 
         self.data_selection.current(0)  # Default value
-        select_button = tk.Button(self.main_frame, text="Show Data", 
-                                  command=self.show_selected_data)
+        select_button = tk.Button(self.main_frame, text="Show Data", bg="white", 
+                                  fg="lightseagreen", command=self.show_selected_data)
         select_button.place(x=300, y=280)
 
         # Create a Text widget to display the selected file contents
@@ -1757,6 +1775,7 @@ class DashboardWindow:
         self.text_widget.config(state=tk.DISABLED)
 
     def show_selected_data(self):
+        """The code to show the selected data based on what they select in the dropdown."""
         # Open the user's profile file
         file_path = f"{self.user_info['username']}.txt"
         if os.path.exists(file_path):

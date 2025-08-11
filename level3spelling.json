@@ -17,21 +17,21 @@
         "Choose the correct spelling:"
     ],
     "options": [
-        ["definately", "definitely ✅", "definetly", "definantly"],
-        ["journal ✅", "jornal", "journaal", "jorunal"],
-        ["intresting", "interesting ✅", "intrestin", "intersting"],
-        ["democracy ✅", "democrazy", "democrasy", "demacracy"],
-        ["eror", "error ✅", "errar", "erorr"],
-        ["balconey", "balcony ✅", "balconny", "ballcony"],
-        ["nesessary", "necesary", "necessary ✅", "neccessary"],
-        ["accident ✅", "accidant", "acsident", "accidnet"],
-        ["seperate", "separite", "separate ✅", "seperite"],
-        ["ceremony ✅", "cerimony", "seremony", "ceremoney"],
-        ["bracelet ✅", "bracelit", "braselet", "braceleet"],
-        ["illustrate ✅", "elustrate", "illustrait", "illistrate"],
-        ["environment ✅", "enviroment", "enviromentt", "envirenment"],
-        ["honest ✅", "onest", "honist", "honnest"],
-        ["library ✅", "libary", "libarry", "lybrary"]
+        ["definately", "definitely ", "definetly", "definantly"],
+        ["journal ", "jornal", "journaal", "jorunal"],
+        ["intresting", "interesting ", "intrestin", "intersting"],
+        ["democracy ", "democrazy", "democrasy", "demacracy"],
+        ["eror", "error ", "errar", "erorr"],
+        ["balconey", "balcony ", "balconny", "ballcony"],
+        ["nesessary", "necesary", "necessary ", "neccessary"],
+        ["accident ", "accidant", "acsident", "accidnet"],
+        ["seperate", "separite", "separate ", "seperite"],
+        ["ceremony ", "cerimony", "seremony", "ceremoney"],
+        ["bracelet ", "bracelit", "braselet", "braceleet"],
+        ["illustrate ", "elustrate", "illustrait", "illistrate"],
+        ["environment ", "enviroment", "enviromentt", "envirenment"],
+        ["honest ", "onest", "honist", "honnest"],
+        ["library ", "libary", "libarry", "lybrary"]
     ],
     "answer": [2, 1, 2, 1, 2, 2, 3, 1, 3, 1, 1, 1, 1, 1, 1]
 }

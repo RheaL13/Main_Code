@@ -17,21 +17,21 @@
         "Choose the sentence with correct punctuation:"
     ],
     "options": [
-        ["He don't like cake.", "He doesn't like cake. ✅", "He don't likes cake.", "He not like cake."],
-        ["quick", "run ✅", "hat", "soft"],
-        ["She play", "She is playing", "She played ✅", "She plays"],
-        ["cat", "book", "Sarah ✅", "tree"],
-        ["He went home", "Do you have your bag? ✅", "She ran fast", "They are tired"],
-        ["ball", "red ✅", "bounced", "the"],
-        [".", "!", "? ✅", ","],
-        ["They was going.", "They were going. ✅", "They is going.", "They be going."],
-        ["in ✅", "at", "to", "into"],
-        ["childs", "children ✅", "childes", "childrens"],
-        ["I'm go to school.", "I am going to school. ✅", "I going to school.", "I am goes to school."],
-        ["slowly ✅", "run", "bike", "strong"],
-        ["sleeps", "cat ✅", "the", "none"],
-        ["I like apples bananas and grapes.", "I like apples, bananas, and grapes. ✅", "I like, apples bananas and grapes.", "I like apples bananas, and grapes."],
-        ["Lets go to the park.", "Let's go to the park! ✅", "Lets go to the park?", "Let's go, to the park."]
+        ["He don't like cake.", "He doesn't like cake. ", "He don't likes cake.", "He not like cake."],
+        ["quick", "run ", "hat", "soft"],
+        ["She play", "She is playing", "She played ", "She plays"],
+        ["cat", "book", "Sarah ", "tree"],
+        ["He went home", "Do you have your bag? ", "She ran fast", "They are tired"],
+        ["ball", "red ", "bounced", "the"],
+        [".", "!", "? ", ","],
+        ["They was going.", "They were going. ", "They is going.", "They be going."],
+        ["in ", "at", "to", "into"],
+        ["childs", "children ", "childes", "childrens"],
+        ["I'm go to school.", "I am going to school. ", "I going to school.", "I am goes to school."],
+        ["slowly ", "run", "bike", "strong"],
+        ["sleeps", "cat ", "the", "none"],
+        ["I like apples bananas and grapes.", "I like apples, bananas, and grapes. ", "I like, apples bananas and grapes.", "I like apples bananas, and grapes."],
+        ["Lets go to the park.", "Let's go to the park! ", "Lets go to the park?", "Let's go, to the park."]
     ],
     "answer": [2, 2, 3, 3, 2, 2, 3, 2, 1, 2, 2, 1, 2, 2, 2]
 }

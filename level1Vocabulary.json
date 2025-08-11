@@ -17,21 +17,21 @@
         "What does 'jump' mean?"
     ],
     "options": [
-        ["small", "fast", "large ✅", "happy"],
-        ["animal ✅", "plant", "food", "toy"],
-        ["sandwich", "cake", "ice cream ✅", "pizza"],
-        ["cold ✅", "warm", "cool", "boil"],
-        ["run", "blue ✅", "soft", "big"],
-        ["slow", "quick ✅", "short", "long"],
-        ["eating", "sleeping ✅", "drawing", "cooking"],
-        ["toy", "food", "thing to read ✅", "shoes"],
-        ["sock", "foot ✅", "hat", "pants"],
-        ["sad", "angry", "glad ✅", "tired"],
-        ["eat", "draw ✅", "wash", "throw"],
-        ["fruit", "vehicle ✅", "pet", "house"],
-        ["dirty ✅", "fresh", "tidy", "soft"],
-        ["new ✅", "used", "ancient", "past"],
-        ["sit", "sleep", "hop ✅", "run"]
+        ["small", "fast", "large ", "happy"],
+        ["animal ", "plant", "food", "toy"],
+        ["sandwich", "cake", "ice cream ", "pizza"],
+        ["cold ", "warm", "cool", "boil"],
+        ["run", "blue ", "soft", "big"],
+        ["slow", "quick ", "short", "long"],
+        ["eating", "sleeping ", "drawing", "cooking"],
+        ["toy", "food", "thing to read ", "shoes"],
+        ["sock", "foot ", "hat", "pants"],
+        ["sad", "angry", "glad ", "tired"],
+        ["eat", "draw ", "wash", "throw"],
+        ["fruit", "vehicle ", "pet", "house"],
+        ["dirty ", "fresh", "tidy", "soft"],
+        ["new ", "used", "ancient", "past"],
+        ["sit", "sleep", "hop ", "run"]
     ],
     "answer": [3, 1, 3, 1, 2, 2, 2, 3, 2, 3, 2, 2, 1, 1, 3]
 }

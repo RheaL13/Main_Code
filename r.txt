@@ -120,3 +120,30 @@ Level: 2
 Correct: 3
 Wrong: 12
 Score: 20%
+
+
+Quiz Results 
+Date: 06/08/2025 10:52:52
+Quiz Area: grammar
+Level: 1
+Correct: 0
+Wrong: 15
+Score: 0%
+
+
+Quiz Results 
+Date: 06/08/2025 10:54:22
+Quiz Area: spelling
+Level: 3
+Correct: 5
+Wrong: 10
+Score: 33%
+
+
+Quiz Results 
+Date: 08/08/2025 11:43:47
+Quiz Area: spelling
+Level: 2
+Correct: 14
+Wrong: 1
+Score: 93%

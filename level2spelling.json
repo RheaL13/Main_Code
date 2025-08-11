@@ -17,21 +17,21 @@
         "Choose the correct spelling for something you read:"
     ],
     "options": [
-        ["beter", "better ✅", "betar", "bettar"],
-        ["skool", "school ✅", "schoool", "schoul"],
-        ["expeckt", "expect ✅", "expecktation", "expakt"],
-        ["loos", "lose ✅", "luze", "looz"],
-        ["bottel", "bottle ✅", "botal", "botle"],
-        ["Tusday", "Toosday", "Tuesday ✅", "Tuseday"],
-        ["diffrent", "different ✅", "diferent","defferent"],
-        ["familee", "family ✅", "familly", "fammily"],
-        ["humourous", "humorous ✅", "humerous", "humoros"],
-        ["probly", "probably ✅", "probbly", "probebly"],
-        ["became ✅", "becaim", "becaem", "becim"],
-        ["rabbet", "rabbit ✅", "rabbbit", "rabit"],
-        ["giraffe ✅", "giraff", "girafe", "jiraf"],
-        ["freezing ✅", "frezing", "freazing", "frezeing"],
-        ["magazine ✅", "magazin", "magasine", "magazeen"]
+        ["beter", "better ", "betar", "bettar"],
+        ["skool", "school ", "schoool", "schoul"],
+        ["expeckt", "expect ", "expecktation", "expakt"],
+        ["loos", "lose ", "luze", "looz"],
+        ["bottel", "bottle ", "botal", "botle"],
+        ["Tusday", "Toosday", "Tuesday ", "Tuseday"],
+        ["diffrent", "different ", "diferent","defferent"],
+        ["familee", "family ", "familly", "fammily"],
+        ["humourous", "humorous ", "humerous", "humoros"],
+        ["probly", "probably ", "probbly", "probebly"],
+        ["became ", "becaim", "becaem", "becim"],
+        ["rabbet", "rabbit ", "rabbbit", "rabit"],
+        ["giraffe ", "giraff", "girafe", "jiraf"],
+        ["freezing ", "frezing", "freazing", "frezeing"],
+        ["magazine ", "magazin", "magasine", "magazeen"]
     ],
     "answer": [2, 2, 2, 2, 2, 3, 2, 2, 2, 2, 1, 2, 1, 1, 1]
 }

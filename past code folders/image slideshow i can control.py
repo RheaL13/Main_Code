@@ -38,6 +38,6 @@ class Slideshow:
 
 if __name__ == "__main__":
     root = tk.Tk()
-    image_dir = "/Users/rheaschool/Library/CloudStorage/GoogleDrive-lalr@stu.otc.school.nz/My Drive/Yr 13/Digital Science/Main_Code/images"#G:\My Drive\Yr 13\Digital Science\Main_Code\images"
+    image_dir = "G:\My Drive\Yr 13\Digital Science\Main_Code\image1"
     slideshow = Slideshow(root, image_dir)
     root.mainloop()
