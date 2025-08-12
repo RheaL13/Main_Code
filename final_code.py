@@ -1,5 +1,5 @@
 """Author: Rhea Lal, Date: 2/5/24 - 15/8/24, Purpose: A GUI program that tests 
-and teaches users (aged 5-15) on 3 different areas of literacy.
+and teaches users (aged 5-15) on 3 different areas of literacy (spelling, grammar, vocabulary).
 """
 # Importing all the modules for the program
 """Provides functions for creating and removing a directory / folder."""
@@ -27,18 +27,18 @@ from tkinter import INSERT
 from tkinter import font
 """Allows the tkinter style of message box that pops up."""
 from tkinter import messagebox as mb
+"""Allows the tkinter style of message box to pop up."""
+from tkinter import messagebox
 """Imports the tkinter style of image that are saved to display and modify."""
 from PIL import Image
-"""Imports the tkinter style of image that are saved to display and modify.."""
+"""Imports the tkinter style of image that are saved to display and modify."""
 from PIL import ImageTk
-"""import json to use json file for data"""
-import json
-"""..."""
-import tkinter.simpledialog as sd
-"""..."""
-from tkinter import messagebox
-"""..."""
+"""Imports the tkinter style of image that are saved to display and modify."""
 from PIL import Image, ImageTk
+"""Imports json to use json file for data."""
+import json
+"""Imports simpledialog from tkinter for single values, in the GUI."""
+import tkinter.simpledialog as sd
 
 
 # The Main Window (the first one users will see)
@@ -650,6 +650,7 @@ class QuestionWindow:
         self.open_level_quiz()  # Now it can access user_info correctly
 
 
+# Code for the level quiz.
 class LevelQuiz:
     """Code for the window of the level quiz."""
     def __init__(self, root, user_info):
@@ -964,6 +965,7 @@ class MainQuiz:
             self.progress_var.set((self.q_no/self.data_size) * 100)
 
 
+# Code for when the user clicks the quiz they want and it opens it.
 class QuizSelect:
     """Code for the window where the user can choose what level and area quiz they want."""
     def __init__(self, parent, current_level):
@@ -1045,7 +1047,7 @@ class QuizSelect:
         return self.selected_quiz
     
 
-# image slideshow (controlled) 2 code
+# Code for the learning part - a slideshow of learn pictures for each level
 class Slideshow:
     """The code that shows the slideshow pictures in the learn class / page."""
     def __init__(self, parent, image_dir):
