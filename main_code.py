@@ -8,6 +8,7 @@ import re
 import json
 import webbrowser
 from datetime import datetime
+
 import tkinter as tk
 from tkinter import ttk, IntVar, Text, INSERT, messagebox as mb
 from PIL import Image, ImageTk
