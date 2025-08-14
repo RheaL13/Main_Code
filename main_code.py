@@ -13,7 +13,7 @@ import tkinter as tk
 from tkinter import ttk, IntVar, Text, INSERT, messagebox as mb
 from PIL import Image, ImageTk
 
-# Some constants to make the code cleaner
+# Some constants to make the code cleaner (repeated colours and window sizes)
 FG_COLOUR = "lightseagreen"
 BG_COLOUR = "oldlace"
 MAIN_WINDOW_WIDTH = 1200
@@ -35,11 +35,11 @@ class MainWindow:
         screen_width = self.master.winfo_screenwidth()
         screen_height = self.master.winfo_screenheight()
 
-        x_position = (screen_width - MAIN_WINDOW_WIDTH) // 2
-        y_position = (screen_height - MAIN_WINDOW_HEIGHT) // 4
+        x_place = (screen_width - MAIN_WINDOW_WIDTH) // 2
+        y_place = (screen_height - MAIN_WINDOW_HEIGHT) // 4
 
         # Set window geometry
-        self.master.geometry(f"{MAIN_WINDOW_WIDTH}x{MAIN_WINDOW_HEIGHT}+{x_position}+{y_position}")
+        self.master.geometry(f"{MAIN_WINDOW_WIDTH}x{MAIN_WINDOW_HEIGHT}+{x_place}+{y_place}")
 
         self.firstwindow = tk.Frame(self.master, bg=BG_COLOUR)
         self.firstwindow.pack(fill="both", expand=True)
