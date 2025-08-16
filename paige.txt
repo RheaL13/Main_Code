@@ -1,0 +1,17 @@
+Profile Data:
+First Name: Paige
+Birthdate: 22/12/2007
+Username: paige
+Password: 12slalom34
+
+Literacy Area: 
+['Spelling']
+
+Level Quiz scores: 
+Date: 15/08/2025 14:02:48
+Correct: 15
+Wrong: 0
+Score: 100%
+
+Learning Level: 
+Level: 3
